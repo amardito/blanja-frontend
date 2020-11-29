@@ -166,28 +166,34 @@ main{
     min-width: 126px;
     height: 140px;
   }
-  .items{width: 50%;}
+  .items{width: 33.33%;}
   .item-card{
-    max-width: 163px;
-  }
-  .item-card > img{
-    height: 86px;
+    max-width: 150px;
   }
   .item-desc{
     font-size: small;
     padding: 8px 9px 11px;
   }
   .item-desc > .item-title{
+    margin-top: 5px;
     line-height: 18px;
   }
   .item-desc > .item-price{
-    line-height: 12px;
+    margin-top: 0;
   }
   .item-desc > span{
     font-size: x-small;
   }
 }
-@media screen and (max-width : 360px){
+@media screen and (max-width : 480px){
+  .items{
+    width: 50%;
+  }
+  .item-card{
+    max-width: 140px;
+  }
+}
+@media screen and (max-width : 310px){
   .items{
     width: 100%;
   }

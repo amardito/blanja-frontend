@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Category from "../components/main/mainCategory";
 import New from '../components/main/mainNew'
 import Popular from '../components/main/mainPopular'
+import Navbar from '../components/navbar'
 import '../styles/pages/main.css';
 import axios from 'axios'
 
@@ -59,7 +60,7 @@ class MainPage extends Component {
     load = () => {
       let items = [0,1,2,3,4]
       return(
-        items.map(data => {return(
+        items.map(() => {return(
           <div className="items">
             <div className="item-card" style={{height: "250px"}}>
               <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F3aaadc45f4da67e52850a02aedf68040%2Ftenor.gif%3Fitemid%3D13427670&f=1&nofb=1" alt="loading" className="imgItem"/>
@@ -96,7 +97,7 @@ class MainPage extends Component {
     }else {popularItem = load}
     return (
       <>
-
+        <Navbar></Navbar>
         <main>
         <div className="main-container">
 
