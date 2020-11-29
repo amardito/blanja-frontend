@@ -7,7 +7,7 @@ import '../styles/pages/main.css';
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: `https://blanja-service.herokuapp.com/api/v1/`
+  baseURL: `http://localhost:1010/api/v1/`
 })
 
 class MainPage extends Component {

@@ -170,6 +170,9 @@ main{
   .item-card{
     max-width: 150px;
   }
+  .item-card > img{
+    height: 120px;
+  }
   .item-desc{
     font-size: small;
     padding: 8px 9px 11px;
