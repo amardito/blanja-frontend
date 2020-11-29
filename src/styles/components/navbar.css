@@ -1,0 +1,220 @@
+nav{
+  background-color: #FFFFFF;
+  box-shadow: 0px 6px 40px rgba(173, 173, 173, 0.25);
+  top: 0;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+}
+.nav-container{
+  max-width: 1140px;
+  height: 85px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+ }
+ 
+ .logo > img{
+   width: 119px;
+   cursor: pointer;
+ }
+ 
+ .search-area{
+   max-width: 558px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+ .search-bar{
+   position: relative;
+   max-width: 507px;
+   width: 100%;
+ }
+ input.search{
+   width: 100%;
+   height: 40px;
+   padding-left: 20px;
+   padding-right: 40px;
+   background-color: #FFFFFF;
+   border: 1px solid #8E8E93;
+   border-radius: 23px;
+   font-family: 'Metropolis Regular';
+   font-size: 16px;
+   line-height: 16px;
+   color: #666666;
+   box-sizing: border-box;
+ }
+ input.search:focus{
+   outline: none;
+   color: #222222;
+   box-shadow: 0 0 3pt 2pt rgba(173, 173, 173, 0.25) inset;
+ }
+ .search-icon{
+   position: absolute;
+   z-index: 1;
+   top: 11px; 
+   right: 20px;
+   cursor: pointer;
+ }
+ .filter{
+   width: 40px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   box-sizing: border-box;
+   background-color: #FFFFFF;
+   border: 1px solid #8E8E93;
+   border-radius: 12px;
+   cursor: pointer;
+ }
+ .filter:hover{
+   box-shadow: 0 0 3pt 1pt rgba(173, 173, 173, 0.25);
+ }
+ 
+ 
+ .nav-btn{
+   max-width: 285px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+ }
+ .btn-wrap{
+   max-width: 220px;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+ }
+ .cart-icon:hover{
+   cursor: pointer;
+ }
+ .btn{
+   width: 100px;
+   height: 40px;
+   border-radius: 25px;
+   border: none;
+   font-family: 'Metropolis Medium';
+   font-size: 14px;
+   line-height: 20px;
+   cursor: pointer;
+ }
+ .primary{
+   background-color: #DB3022;
+   color: #FFFFFF;
+   outline: none;
+ }
+ .primary:hover{
+   background-color: #db3122d3;
+ }
+ .secondary{
+   background-color: transparent;
+   border: 1px solid #9B9B9B;
+   box-sizing: border-box;
+   color: #9B9B9B;
+   outline: none;
+ }
+ .secondary:hover{
+   border: 1px solid #DB3022;
+   box-sizing: border-box;
+   color: #DB3022;
+ }
+ 
+ .nav-menu{
+   display: none;
+   position: relative;
+ }
+ .menu-list{
+   display: none;
+   position: absolute;
+   right: 0;
+   top: 70px;
+   background-color: #fdfdfd;
+   min-width: 240px;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 1;
+   border-radius: 12px;
+   padding: 10px 0;
+   font-family: 'Metropolis Medium';
+   font-size: 16px;
+   line-height: 20px;
+ }
+ .menu-list .menu{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px 15px;
+   color: #8E8E93;
+  }
+  .menu-list .menu:hover{
+    background-color: #ecececb6;
+    color: #222222;
+  }
+  .nav-menu:hover .menu-list{
+    display: block;
+  }
+ 
+  @media screen and (max-width : 1140px){
+    .nav-container{
+      padding: 0 20px;
+    }
+    .search-area{
+      padding: 0 20px;
+    }
+    .search-bar{
+      padding-right: 10px;
+    }
+    .nav-btn{
+      max-width: 270px;
+    }
+  }
+  @media screen and (max-width : 900px){
+    .nav-container{
+      height: 65px;
+    }
+    .nav-btn{
+      display: none;
+    }
+    .nav-menu{
+      display: inline-block;
+    }
+    .filter{
+      padding: 0 8px;
+    }
+ }
+ @media screen and (max-width : 720px){
+   .logo > img{
+     width: 79px;
+   }
+   .search-area{
+     padding: 0; padding-left: 10px;
+   }
+   input.search{
+     height: 30px;
+     font-size: 13px;
+     padding-left: 10px;
+     padding-right: 32px;
+   }
+   .search-icon{
+     top: 5px;
+   }
+   .filter{
+     display: none;
+   }
+   .nav-menu > .btn, .menu > .btn{
+     font-size: 12px;
+     width: 70px;
+     height: 30px;
+   }
+   .menu-list{
+     top: 60px;
+     font-size: 14px;
+     min-width: 180px;
+   }
+ }
