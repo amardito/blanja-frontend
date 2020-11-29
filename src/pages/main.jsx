@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Navbar from '../components/navbar'
+import Category from "../components/main/mainCategory";
 import New from '../components/main/mainNew'
 import Popular from '../components/main/mainPopular'
 import '../styles/pages/main.css';
@@ -12,8 +12,19 @@ const api = axios.create({
 class MainPage extends Component {
   
   state = {
+    getDataPopular: [],
     getDataNew : [],
     getCategory : []
+  }
+
+  getAllPopular = async () => {
+    await api.get('products?sortby=popular&sort=DESC').then(({data}) => {
+      this.setState({
+        getDataPopular: data.data
+      })
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   getAllLatest = async () => {
@@ -31,26 +42,61 @@ class MainPage extends Component {
       this.setState({
         getCategory: data.data
       })
-      console.log(data);
     }).catch((err) => {
       console.log(err);
     });
   }
 
   componentDidMount(){
+    this.getAllPopular();
     this.getAllLatest();
-    this.getAllCategory()
-  }
-
-  componentDidUpdate(){
-
+    this.getAllCategory();
   }
 
   render() {
-    const { getDataNew, getCategory } = this.state;
+    const { getDataNew, getCategory, getDataPopular } = this.state;
+    let popularItem,newItem,load
+    load = () => {
+      let items = [0,1,2,3,4]
+      return(
+        items.map(data => {return(
+          <div className="items">
+            <div className="item-card" style={{height: "250px"}}>
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F3aaadc45f4da67e52850a02aedf68040%2Ftenor.gif%3Fitemid%3D13427670&f=1&nofb=1" alt="loading" className="imgItem"/>
+            </div>
+          </div>
+        )})
+      )  
+    }
+    if (getDataNew.length) {
+      newItem = () => {
+        return(
+          getDataNew && getDataNew.map(
+            ({ id_product, product_name, product_price, product_by}) => {
+              return(
+                <New key={id_product} title={product_name} price={product_price} ownerShop={product_by}/>
+              )
+            }
+          )
+        )
+      }
+    }else {newItem = load}
+    if (getDataPopular.length) {
+      popularItem = () => {
+        return(
+          getDataPopular && getDataPopular.map(
+            ({ id_product, product_name, product_price, product_by}) => {
+              return(
+                <Popular key={id_product} title={product_name} price={product_price} ownerShop={product_by}/>
+              )
+            }
+          )
+        )
+      }
+    }else {popularItem = load}
     return (
       <>
-        <Navbar></Navbar>
+
         <main>
         <div className="main-container">
 
@@ -84,40 +130,13 @@ class MainPage extends Component {
             </div>
             <div className="list">
 
-              <div className="item">
-                <div className="item-category" style={{backgroundColor: "#CC0B04",}}>
-                  <img src="/assets/img/hiclipart 15 t-shirt.png" alt="category"/>
-                  <p className="item-text">T-Shirt</p>
-                </div>
-              </div>
-
-              <div className="item">
-                <div className="item-category" style={{backgroundColor: "#1C3391",}}>
-                  <img src="/assets/img/hiclipart 21 shorts.png" alt="category"/>
-                  <p className="item-text">Short</p>
-                </div>
-              </div>
-
-              <div className="item">
-                <div className="item-category" style={{backgroundColor: "#F67B02",}}>
-                  <img src="/assets/img/hiclipart 22 jacket.png" alt="category"/>
-                  <p className="item-text">Jacket</p>
-                </div>
-              </div>
-
-              <div className="item">
-                <div className="item-category" style={{backgroundColor: "#E31F51",}}>
-                  <img src="/assets/img/hiclipart 26 pants.png" alt="category"/>
-                  <p className="item-text">Pants</p>
-                </div>
-              </div>
-
-              <div className="item">
-                <div className="item-category" style={{backgroundColor: "#57CD9E",}}>
-                  <img src="/assets/img/hiclipart 34 shoes.png" alt="category"/>
-                  <p className="item-text">Shoes</p>
-                </div>
-              </div>
+             {getCategory && getCategory.map(
+               ({ id_category, category_name, category_img}, index) => {
+                return(
+                   <Category key={id_category} title={category_name} categoryImg={category_img} backgroundIndex={index}/>
+                 )
+               }
+             )}
 
             </div>
           </div>
@@ -128,14 +147,7 @@ class MainPage extends Component {
               <span>You've never seen it before!</span>
             </div>
             <div className="flex-list">
-              {getDataNew && getDataNew.map(
-                ({ id_product, product_name, product_price, product_by}) => {
-                  return(
-                    <New key={id_product} title={product_name} price={product_price} ownerShop={product_by}/>
-                  )
-                }
-              )}
-
+              {newItem()}
             </div>
           </div>
           
@@ -146,7 +158,7 @@ class MainPage extends Component {
             </div>
             <div className="flex-list">
 
-              <Popular></Popular>
+              {popularItem()}
               
             </div>
           </div>
