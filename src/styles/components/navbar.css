@@ -46,6 +46,7 @@ nav{
    line-height: 16px;
    color: #666666;
    box-sizing: border-box;
+   margin: 0;
  }
  input.search:focus{
    outline: none;
