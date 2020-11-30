@@ -11,14 +11,7 @@
   height: 100vh;
   background-color: #00000050;
 }
-.card{
-  width: 450px;
-  max-height: 750px;
-  height: 100%;
-  background-color: #fafafa;
-  border-radius: 8px;
-  padding: 25px;
-  box-sizing: border-box;
+.filterMenu{
   position: absolute;
   z-index: 3;
   top: 70px;
@@ -26,5 +19,10 @@
 @media screen and (max-width: 900px){
   .wrap{
     top: 60px;
+  }
+}
+@media screen and (max-width: 576px){
+  .filterMenu{
+    top: 0px;
   }
 }
