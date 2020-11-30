@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class New extends Component {
   render() {
-    const { title, price, ownerShop } = this.props
+    const { title, price, ownerShop, sold } = this.props
     return (
       <div className="items">
         <div className="item-card">
@@ -10,9 +10,10 @@ export default class New extends Component {
           <div className="item-desc">
             <p className="item-title">{title}</p>
             <p className="item-price">IDR {price}</p>
-            <span>{ownerShop}</span>
+            <p className="item-shop">{ownerShop}</p>
             <div className="item-rate">
               <img src="/assets/icons/Rating 5 stars.svg" alt="rating"/>
+              <span>({sold})</span>
             </div>
           </div>
         </div>

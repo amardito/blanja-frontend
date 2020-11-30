@@ -11,11 +11,13 @@ const api = axios.create({
 })
 
 class MainPage extends Component {
-  
-  state = {
-    getDataPopular: [],
-    getDataNew : [],
-    getCategory : []
+  constructor(){
+    super();
+    this.state = {
+      getDataPopular: [],
+      getDataNew : [],
+      getCategory : [],
+    }
   }
 
   getAllPopular = async () => {
@@ -55,6 +57,7 @@ class MainPage extends Component {
   }
 
   render() {
+    console.log('test duplicate');
     const { getDataNew, getCategory, getDataPopular } = this.state;
     let popularItem,newItem,load
     load = () => {
@@ -73,9 +76,9 @@ class MainPage extends Component {
       newItem = () => {
         return(
           getDataNew && getDataNew.map(
-            ({ id_product, product_name, product_price, product_by}) => {
+            ({ id_product, product_name, product_price, product_by, product_sold}) => {
               return(
-                <New key={id_product} title={product_name} price={product_price} ownerShop={product_by}/>
+                <New key={id_product} title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
               )
             }
           )
@@ -86,9 +89,9 @@ class MainPage extends Component {
       popularItem = () => {
         return(
           getDataPopular && getDataPopular.map(
-            ({ id_product, product_name, product_price, product_by}) => {
+            ({ id_product, product_name, product_price, product_by, product_sold}) => {
               return(
-                <Popular key={id_product} title={product_name} price={product_price} ownerShop={product_by}/>
+                <Popular key={id_product} title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
               )
             }
           )

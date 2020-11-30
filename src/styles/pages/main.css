@@ -71,20 +71,23 @@ main{
   box-sizing: border-box;
 }
 .item-title{
+  margin: 0;
   line-height: 24px;
   color: #000000;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 .item-price{
+  margin: 0;
   line-height: 16px;
   color: #DB3022;
   margin-bottom: 6px;
 }
-.item-desc > span{
+.item-shop{
+  margin: 0;
   font-size: small;
   font-family: 'Metropolis Regular';
   color: #666666;
-  margin-bottom: 11px;
+  margin-bottom: 8px;
 }
 
 .item-tags {
@@ -133,6 +136,15 @@ main{
   object-position: center;
   border-radius: 8px 8px 0px 0px;
 }
+.item-rate{
+  font-family: 'Metropolis Regular';
+  font-style: normal;
+  font-weight: normal;
+  font-size: x-small;
+  display: flex;
+  align-items: center;
+  margin-left: -2px;
+}.item-rate span{margin-left: -15px;}
 
 .new{margin-bottom: 30px; padding: 0 10px;}
 .popular{margin-bottom: 30px; padding: 0 10px;}
@@ -160,6 +172,14 @@ main{
     font-size: x-large;
   }
   .items{width: 33.33%;}
+  
+  .item-title{
+    line-height: 18px;
+    margin-bottom: 8px;
+  }
+  .item-shop{
+    margin-bottom: 8px;
+  }
 }
 @media screen and (max-width : 720px){
   .item-category{
@@ -170,22 +190,15 @@ main{
   .item-card{
     max-width: 150px;
   }
-  .item-card > img{
-    height: 120px;
+  .imgItem{
+    height: 116px;
   }
   .item-desc{
     font-size: small;
     padding: 8px 9px 11px;
   }
-  .item-desc > .item-title{
-    margin-top: 5px;
-    line-height: 18px;
-  }
-  .item-desc > .item-price{
-    margin-top: 0;
-  }
-  .item-desc > span{
-    font-size: x-small;
+  .item-shop{
+    font-size: smaller;
   }
 }
 @media screen and (max-width : 480px){

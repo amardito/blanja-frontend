@@ -1,15 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { BrowserRouter, Route } from "react-router-dom";
+
 import MainPage from './pages/main'
+import Product from './pages/product'
+import Search from './pages/search';
 
-class App extends Component {
+function App() {
+  return (
+    <BrowserRouter>
 
-  render() {
-    return (
-      <>
-        <MainPage></MainPage>
-      </>
-    )
-  }
+      <Route path="/" exact component={MainPage} />
+      <Route path="/product/:id" exact component={Product} />
+      <Route path="/search" exact component={Search} />
+
+    </BrowserRouter>
+  )
 }
 
 export default App;
