@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Category from "../components/main/mainCategory";
-import New from '../components/main/mainNew'
-import Popular from '../components/main/mainPopular'
-import Navbar from '../components/navbar'
+import New from '../components/main/mainNew';
+import Popular from '../components/main/mainPopular';
+import Navbar from '../components/navbar';
 import '../styles/pages/main.css';
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
-})
+});
 
 class MainPage extends Component {
   constructor(){
@@ -63,8 +64,8 @@ class MainPage extends Component {
     load = () => {
       let items = [0,1,2,3,4]
       return(
-        items.map(() => {return(
-          <div className="items">
+        items.map((data) => {return(
+          <div className="items" key={data}>
             <div className="item-card" style={{height: "250px"}}>
               <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F3aaadc45f4da67e52850a02aedf68040%2Ftenor.gif%3Fitemid%3D13427670&f=1&nofb=1" alt="loading" className="imgItem"/>
             </div>
@@ -78,7 +79,12 @@ class MainPage extends Component {
           getDataNew && getDataNew.map(
             ({ id_product, product_name, product_price, product_by, product_sold}) => {
               return(
-                <New key={id_product} title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
+                <Link key={id_product} className="items" to={{
+                    pathname:`/product/${id_product}`,
+                    state: {id_product}
+                  }}>
+                  <New title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
+                </Link>
               )
             }
           )
@@ -91,16 +97,22 @@ class MainPage extends Component {
           getDataPopular && getDataPopular.map(
             ({ id_product, product_name, product_price, product_by, product_sold}) => {
               return(
-                <Popular key={id_product} title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
+                <Link key={id_product} className="items" to={{
+                    pathname: `/product/${id_product}`,
+                    state: {id_product}
+                  }}>
+                  <Popular title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} />
+                </Link>
               )
             }
           )
         )
       }
     }else {popularItem = load}
+    // console.log(this.props)
     return (
       <>
-        <Navbar></Navbar>
+        <Navbar prophistory={this.props} />
         <main>
         <div className="main-container">
 
@@ -137,7 +149,7 @@ class MainPage extends Component {
              {getCategory && getCategory.map(
                ({ id_category, category_name, category_img}, index) => {
                 return(
-                   <Category key={id_category} title={category_name} categoryImg={category_img} backgroundIndex={index}/>
+                   <Category key={id_category} title={category_name} categoryImg={category_img} backgroundIndex={index} />
                  )
                }
              )}
@@ -151,7 +163,9 @@ class MainPage extends Component {
               <span>You've never seen it before!</span>
             </div>
             <div className="flex-list">
+
               {newItem()}
+
             </div>
           </div>
           

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class New extends Component {
+export default class SearchItems extends Component {
   render() {
     const { title, price, ownerShop, sold } = this.props
     return (

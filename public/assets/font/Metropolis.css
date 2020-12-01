@@ -5,6 +5,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Regular'), url('Metropolis-Regular.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -13,6 +14,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Regular Italic'), url('Metropolis-RegularItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -21,6 +23,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Extra Light'), url('Metropolis-ExtraLight.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -29,6 +32,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Light'), url('Metropolis-Light.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -37,6 +41,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Thin'), url('Metropolis-Thin.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -45,6 +50,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Extra Light Italic'), url('Metropolis-ExtraLightItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -53,6 +59,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Light Italic'), url('Metropolis-LightItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -61,6 +68,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Thin Italic'), url('Metropolis-ThinItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -69,6 +77,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Medium'), url('Metropolis-Medium.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -77,6 +86,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Semi Bold'), url('Metropolis-SemiBold.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -85,6 +95,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Bold'), url('Metropolis-Bold.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -93,6 +104,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Bold Italic'), url('Metropolis-BoldItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -101,6 +113,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Medium Italic'), url('Metropolis-MediumItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -109,6 +122,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Semi Bold Italic'), url('Metropolis-SemiBoldItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -117,6 +131,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Extra Bold'), url('Metropolis-ExtraBold.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -125,6 +140,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Extra Bold Italic'), url('Metropolis-ExtraBoldItalic.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -133,6 +149,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Black'), url('Metropolis-Black.woff') format('woff');
+    font-display: fallback;
     }
     
 
@@ -141,4 +158,5 @@
     font-style: normal;
     font-weight: normal;
     src: local('Metropolis Black Italic'), url('Metropolis-BlackItalic.woff') format('woff');
+    font-display: fallback;
     }

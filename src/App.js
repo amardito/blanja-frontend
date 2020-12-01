@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
 
       <Route path="/" exact component={MainPage} />
-      <Route path="/product/:id" exact component={Product} />
-      <Route path="/search" exact component={Search} />
+      <Route path="/product/:id" component={Product} />
+      <Route path="/search" component={Search} />
 
     </BrowserRouter>
   )

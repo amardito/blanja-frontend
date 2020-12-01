@@ -3,17 +3,18 @@ import {
   Card,
   ListGroup,
  } from 'react-bootstrap';
- import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/components/filter.css"
 import axios from 'axios'
+
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
 })
 
 class Filter extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       getCategory : [],
     }
@@ -29,13 +30,18 @@ class Filter extends Component {
     });
   }
 
+  refreshPage() {
+    window.location.reload(false);
+  }
+
   componentDidMount(){
     this.getAllCategory();
   }
 
   render() {
     const { getCategory } = this.state;
-    const{hidden} = this.props;
+    const{ hidden, urlCategory } = this.props;
+    
     return (
       <div className="wrap">
         <div className="outer" onClick={hidden}>
@@ -57,8 +63,12 @@ class Filter extends Component {
                       ({ id_category, category_name }) => {
                         return(
                           <div className="col-sm-4 col-6 pr-2 pl-2" key={id_category}>
-                            <div class="btn-group mr-2" role="group">
-                              <button type="button" className="btn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}}>{ category_name }</button>                    
+                            <div className="btn-group mr-2" role="group">
+                                <button type="button" className="btn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}} onClick={(e)=>{urlCategory(category_name)
+                                if(e){
+                                  this.refreshPage()
+                                }
+                                }}>{ category_name }</button>
                             </div>
                           </div>
                         )
