@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/pages/main.css';
-import Navbar from '../components/navbar'
-import SearchItems from '../components/searchItems';
+import Navbar from '../components/navbar/navbar'
+import SearchItems from '../components/search/searchItems';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -32,7 +32,7 @@ class Search extends Component {
   }
 
   render() {
-    console.log('test render ' + this.state.getData);
+    console.log('test render');
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
     const cat = new URLSearchParams(search).get("category");

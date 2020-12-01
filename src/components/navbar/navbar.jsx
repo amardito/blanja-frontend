@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import FilterSearch from './filter'
-import '../styles/components/navbar.css'
+import '../../styles/components/navbar.css'
 import {Link} from 'react-router-dom'
 
 class Navbar extends Component {
@@ -46,6 +46,7 @@ class Navbar extends Component {
   toggleCategory = (params) => {
     const search = this.props.prophistory.location.search;
     const name = new URLSearchParams(search).get("name")
+    console.log(search)
     if(name === null){
       this.props.prophistory.history.push({ 
         pathname: '/search',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Container} from 'react-bootstrap'
 import "../styles/pages/detail.css";
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbar/navbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 

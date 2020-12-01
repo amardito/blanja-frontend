@@ -4,7 +4,7 @@ import {
   ListGroup,
  } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/components/filter.css"
+import "../../styles/components/filter.css"
 import axios from 'axios'
 
 

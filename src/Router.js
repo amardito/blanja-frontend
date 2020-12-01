@@ -5,7 +5,7 @@ import MainPage from './pages/main'
 import Product from './pages/product'
 import Search from './pages/search';
 
-function App() {
+function Router() {
   return (
     <BrowserRouter>
 
@@ -17,4 +17,4 @@ function App() {
   )
 }
 
-export default App;
+export default Router;

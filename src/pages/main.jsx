@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Category from "../components/main/mainCategory";
 import New from '../components/main/mainNew';
 import Popular from '../components/main/mainPopular';
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbar/navbar';
 import '../styles/pages/main.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
