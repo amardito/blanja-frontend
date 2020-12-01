@@ -30,9 +30,9 @@ class Filter extends Component {
     });
   }
 
-  refreshPage() {
-    window.location.reload(false);
-  }
+  // refreshPage() {
+  //   window.location.reload(false);
+  // }
 
   componentDidMount(){
     this.getAllCategory();
@@ -65,9 +65,9 @@ class Filter extends Component {
                           <div className="col-sm-4 col-6 pr-2 pl-2" key={id_category}>
                             <div className="btn-group mr-2" role="group">
                                 <button type="button" className="btnn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}} onClick={(e)=>{urlCategory(category_name)
-                                if(e){
-                                  this.refreshPage()
-                                }
+                                // if(e){
+                                //   this.refreshPage()
+                                // }
                                 }}>{ category_name }</button>
                             </div>
                           </div>

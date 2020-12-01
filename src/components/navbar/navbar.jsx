@@ -17,7 +17,6 @@ class Navbar extends Component {
         )
       },
       handleSearch: '',
-      handleCategory: '',
     }
   }
 
@@ -33,9 +32,9 @@ class Navbar extends Component {
     })
   }
 
-  refreshPage() {
-    window.location.reload(false);
-  }
+  // refreshPage() {
+  //   window.location.reload(false);
+  // }
 
   toggleHidden = () => {
     this.setState({
@@ -46,17 +45,19 @@ class Navbar extends Component {
   toggleCategory = (params) => {
     const search = this.props.prophistory.location.search;
     const name = new URLSearchParams(search).get("name")
-    console.log(search)
+    // console.log(search)
     if(name === null){
       this.props.prophistory.history.push({ 
         pathname: '/search',
         search: `?category=${params}`
        });
+       window.location.href=`/search?category=${params}`
     }else{
       this.props.prophistory.history.push({ 
         pathname: '/search',
         search: `?name=${name}&category=${params}`
        });
+       window.location.href=`/search?name=${name}&category=${params}`
     }
   }
   
@@ -86,7 +87,8 @@ class Navbar extends Component {
                       pathname: '/search',
                       search: `?name=${this.state.handleSearch}`
                      });
-                     this.refreshPage()         
+                    //  this.refreshPage()
+                    window.location.href=`/search?name=${this.state.handleSearch}`
                   }
                 }} onChange={(e)=> {
                   // console.log(this.props);
