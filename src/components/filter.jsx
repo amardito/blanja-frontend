@@ -64,7 +64,7 @@ class Filter extends Component {
                         return(
                           <div className="col-sm-4 col-6 pr-2 pl-2" key={id_category}>
                             <div className="btn-group mr-2" role="group">
-                                <button type="button" className="btn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}} onClick={(e)=>{urlCategory(category_name)
+                                <button type="button" className="btnn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}} onClick={(e)=>{urlCategory(category_name)
                                 if(e){
                                   this.refreshPage()
                                 }

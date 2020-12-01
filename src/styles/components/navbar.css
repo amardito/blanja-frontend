@@ -103,7 +103,7 @@ nav{
  .cart-icon:hover{
    cursor: pointer;
  }
- .btn{
+ .btnn{
    width: 100px;
    height: 40px;
    border-radius: 25px;
@@ -112,6 +112,8 @@ nav{
    font-size: 14px;
    line-height: 20px;
    cursor: pointer;
+   background-color: #00000000;
+   outline: none;
  }
  .primary{
    background-color: #DB3022;
@@ -219,7 +221,7 @@ nav{
      margin-right: 5px;
      border-radius: 10px;
    }
-   .nav-menu > .btn, .menu > .btn{
+   .nav-menu > .btnn, .menu > .btnn{
      font-size: 12px;
      width: 70px;
      height: 30px;

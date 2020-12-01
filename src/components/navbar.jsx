@@ -11,8 +11,8 @@ class Navbar extends Component {
       navMenu : ()=>{
         return(
         <div className="btn-wrap">
-          <input type="button" value="Login" className="btn primary" onClick={this.toggleLogin}/>
-          <input type="button" value="Signup" className="btn secondary"/>
+          <input type="button" value="Login" className="btnn primary" onClick={this.toggleLogin}/>
+          <input type="button" value="Signup" className="btnn secondary"/>
         </div>
         )
       },
@@ -46,10 +46,17 @@ class Navbar extends Component {
   toggleCategory = (params) => {
     const search = this.props.prophistory.location.search;
     const name = new URLSearchParams(search).get("name")
-    this.props.prophistory.history.push({ 
-      pathname: '/search',
-      search: `?name=${name}&category=${params}`
-     });
+    if(name === null){
+      this.props.prophistory.history.push({ 
+        pathname: '/search',
+        search: `?category=${params}`
+       });
+    }else{
+      this.props.prophistory.history.push({ 
+        pathname: '/search',
+        search: `?name=${name}&category=${params}`
+       });
+    }
   }
   
   render(){
@@ -100,7 +107,7 @@ class Navbar extends Component {
             </div>
   
             <div className="nav-menu">
-              <button className="btn primary">Menu</button>
+              <button className="btnn primary">Menu</button>
               <div className="menu-list">
                 
                 <div className="menu">
@@ -108,8 +115,8 @@ class Navbar extends Component {
                   <p>My Cart</p>
                 </div>
                 <div className="menu">
-                    <input type="button" value="Login" className="btn primary"/>
-                    <input type="button" value="Signup" className="btn secondary"/>
+                    <input type="button" value="Login" className="btnn primary"/>
+                    <input type="button" value="Signup" className="btnn secondary"/>
                 </div>
   
               </div>
