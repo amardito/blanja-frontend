@@ -1,10 +1,16 @@
+main{
+  width: 100%;
+  padding-top: 85px;
+}
 .main {
-  margin-top: 100px;
+  margin: auto;
+  max-width: 1140px;
+  margin-top: 50px;
 }
 
 .font-p-title {
-  font-size: 12px;
-  color: #9b9b9b;
+  font-size: medium;
+  color: #585858;
 }
 
 ul.horizontal-list {
@@ -20,11 +26,6 @@ ul.horizontal-list li {
 
 .small-images {
   width: 16%;
-}
-
-.font-p-title {
-  font-size: 12px;
-  color: #9b9b9b;
 }
 
 .checked {
@@ -54,6 +55,8 @@ ul.horizontal-list li {
   background-color: #fff;
   border: 1px solid #000;
   color: #000;
+  cursor: pointer;
+  outline: none;
 }
 .btn-add-bag {
   display: inline-flex;
@@ -66,6 +69,8 @@ ul.horizontal-list li {
   background-color: #fff;
   border: 1px solid #000;
   color: #000;
+  cursor: pointer;
+  outline: none;
 }
 .btn-buy {
   display: inline-flex;
@@ -77,6 +82,9 @@ ul.horizontal-list li {
   font-size: 12px;
   background-color: #db3022;
   color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .bintang {
