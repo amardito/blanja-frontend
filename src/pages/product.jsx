@@ -3,7 +3,7 @@ import {Container} from 'react-bootstrap'
 import "../styles/pages/detail.css";
 import Navbar from '../components/navbar/navbar';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
@@ -29,10 +29,6 @@ class Product extends Component {
 
   deleteProduct = async() => {
     await api.delete(`product/delete/${this.state.getData.id_product}`)
-  }
-
-  refreshPage() {
-    window.location.href='https://blanjalah.netlify.app/'
   }
 
   componentDidMount = () => {
@@ -152,17 +148,13 @@ class Product extends Component {
               </div>
             </div>
             <div className=" d-flex justify-content-between">
-              <Link to={{
-                    pathname: `/`
-                  }}>
-                <button className="btnGrup btn-chart mt-2" onClick={(e)=>{this.deleteProduct()
-                  if(e){
-                    this.refreshPage()
-                  }
-                }}>
-                  Delete This Product
-                </button>
-              </Link>
+              <button className="btnGrup btn-chart mt-2" onClick={(e)=>{this.deleteProduct()
+                if(e){
+                  window.location.href='/'
+                }
+              }}>
+                Delete
+              </button>
               <button className="btnGrup btn-add-bag mt-2">
                 Add bag
               </button>
@@ -273,17 +265,13 @@ class Product extends Component {
         
         {/* Menu Bottom */}
         <div className="btn d-flex d-lg-none">
-          <Link to={{
-                pathname: `/`
-              }}>
-            <button className="btnGrup btn-chart mt-2" onClick={(e)=>{this.deleteProduct()
-              if(e){
-                this.refreshPage()
-              }
-            }}>
-              Delete This Product
-            </button>
-          </Link>
+          <button className="btnBtm btn-chart mt-2" onClick={(e)=>{this.deleteProduct()
+            if(e){
+              window.location.href='/'
+            }
+          }}>
+            Delete
+          </button>
           <button className="btnBtm btn-add-bag mt-2">
             Add bag
           </button>

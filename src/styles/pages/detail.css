@@ -199,3 +199,7 @@ ul.horizontal-list li {
     display: none;
   }
 }
+@media screen and (max-width : 900px){
+  main{padding-top: 65px;}
+  .main{margin-top: 40px;}
+}

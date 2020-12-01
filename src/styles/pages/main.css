@@ -158,6 +158,8 @@ main{
   }
 }
 @media screen and (max-width : 900px){
+  main{padding-top: 65px;}
+  .main-container{margin-top: 40px;}
   .item-tags > img {
     width: 341px;
   }

@@ -16,8 +16,9 @@ nav{
   margin: auto;
  }
  
- .logo > img{
+ .logo img{
   height: 40px;
+  margin-top: -7px;
   cursor: pointer;
  }
  
@@ -200,7 +201,7 @@ nav{
     }
  }
  @media screen and (max-width : 720px){
-   .logo > img{
+   .logo img{
      height: 30px;
    }
    .search-area{

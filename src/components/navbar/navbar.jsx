@@ -51,13 +51,13 @@ class Navbar extends Component {
         pathname: '/search',
         search: `?category=${params}`
        });
-       window.location.href=`https://blanjalah.netlify.app/search?category=${params}`
+       window.location.href=`/search?category=${params}`
     }else{
       this.props.prophistory.history.push({ 
         pathname: '/search',
         search: `?name=${name}&category=${params}`
        });
-       window.location.href=`https://blanjalah.netlify.app/search?name=${name}&category=${params}`
+       window.location.href=`/search?name=${name}&category=${params}`
     }
   }
   
@@ -88,7 +88,7 @@ class Navbar extends Component {
                       search: `?name=${this.state.handleSearch}`
                      });
                     //  this.refreshPage()
-                    window.location.href=`https://blanjalah.netlify.app/search?name=${this.state.handleSearch}`
+                    window.location.href=`/search?name=${this.state.handleSearch}`
                   }
                 }} onChange={(e)=> {
                   // console.log(this.props);
