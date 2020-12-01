@@ -37,6 +37,7 @@ class Search extends Component {
     const name = new URLSearchParams(search).get("name");
     const cat = new URLSearchParams(search).get("category");
     const { getData } = this.state;
+    console.log('render test')
     return (
       <>
         <Navbar prophistory={this.props} />
