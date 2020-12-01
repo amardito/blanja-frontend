@@ -32,7 +32,7 @@ class Product extends Component {
   }
 
   refreshPage() {
-    window.location.href='http://192.168.1.6:3000/'
+    window.location.href='https://blanjalah.netlify.app/'
   }
 
   componentDidMount = () => {
