@@ -45,7 +45,7 @@ export default class EditName extends Component {
         <div className="outer" onClick={hidden}>
         </div>
         <div className="filterMenu">
-          <Card style={{width: '100%', maxWidth: '450px'}}>
+          <Card>
             <Card.Header className="d-flex flex-row align-items-center" style={{maxHeight: '60px'}}>
               <button type="button" className="close mb-1" aria-label="Close" onClick={hidden}>
                 <h2 className="m-0">&times;</h2>

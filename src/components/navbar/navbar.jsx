@@ -32,10 +32,6 @@ class Navbar extends Component {
     })
   }
 
-  // refreshPage() {
-  //   window.location.reload(false);
-  // }
-
   toggleHidden = () => {
     this.setState({
       isHidden: !this.state.isHidden
@@ -62,7 +58,6 @@ class Navbar extends Component {
   }
   
   render(){
-    // const {prophistory} = this.props
     return(
       <>
         <nav>
@@ -87,7 +82,6 @@ class Navbar extends Component {
                       pathname: '/search',
                       search: `?name=${this.state.handleSearch}`
                      });
-                    //  this.refreshPage()
                     window.location.href=`/search?name=${this.state.handleSearch}`
                   }
                 }} onChange={(e)=> {
@@ -118,8 +112,7 @@ class Navbar extends Component {
                   <p>My Cart</p>
                 </div>
                 <div className="menu">
-                    <input type="button" value="Login" className="btnn primary"/>
-                    <input type="button" value="Signup" className="btnn secondary"/>
+                  <this.state.navMenu/>
                 </div>
   
               </div>

@@ -148,6 +148,7 @@ main{
 
 .new{margin-bottom: 30px; padding: 0 10px;}
 .popular{margin-bottom: 30px; padding: 0 10px;}
+.search{margin-bottom: 30px; padding: 0 10px;}
 
 @media screen and (max-width : 1140px){
   .list{

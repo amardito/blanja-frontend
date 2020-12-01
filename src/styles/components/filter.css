@@ -15,9 +15,10 @@
   position: absolute;
   z-index: 5;
   top: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+}
+.filterMenu > .card{
+  min-width: 500px;;
+  max-width: 500px;
 }
 @media screen and (max-width: 900px){
   .wrap{
@@ -27,5 +28,8 @@
 @media screen and (max-width: 576px){
   .filterMenu{
     top: 0px;
+  }
+  .filterMenu > .card{
+    max-width: 100%;
   }
 }

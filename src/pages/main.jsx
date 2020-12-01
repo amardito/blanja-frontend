@@ -149,7 +149,9 @@ class MainPage extends Component {
              {getCategory && getCategory.map(
                ({ id_category, category_name, category_img}, index) => {
                 return(
+                  <Link key={id_category} to={`/search?category=${category_name}`}>
                    <Category key={id_category} title={category_name} categoryImg={category_img} backgroundIndex={index} />
+                  </Link>
                  )
                }
              )}

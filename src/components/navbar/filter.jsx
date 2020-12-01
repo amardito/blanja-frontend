@@ -47,7 +47,7 @@ class Filter extends Component {
         <div className="outer" onClick={hidden}>
         </div>
         <div className="filterMenu">
-          <Card style={{maxWidth: '450px'}}>
+          <Card>
             <Card.Header className="d-flex flex-row align-items-center">
               <button type="button" className="close pb-1" aria-label="Close" onClick={hidden}>
                 <h1>&times;</h1>
