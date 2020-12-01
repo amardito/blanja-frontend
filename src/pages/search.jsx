@@ -10,34 +10,33 @@ const api = axios.create({
 });
 
 class Search extends Component {
-  constructor(){
-    super();
-    this.state = {
-      getData: [],
-    }
-  }
-  getAll = async () => {
-    const search = this.props.location.search;
-    await api.get(`search${search}`).then(({data}) => {
-      this.setState({
-        getData: data.data
-      })
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
-  componentDidMount(){
-    this.getAll()
-    console.log(`search${this.props.location.search}`);
-  }
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     getData: [],
+  //   }
+  // }
+  // getAll = async () => {
+  //   const search = this.props.location.search;
+  //   await api.get(`search${search}`).then(({data}) => {
+  //     this.setState({
+  //       getData: data.data
+  //     })
+  //   }).catch((err) => {
+  //     console.log(err);
+  //   });
+  // }
+  // componentDidMount(){
+  //   this.getAll()
+  //   console.log(`search${this.props.location.search}`);
+  // }
 
   render() {
-    console.log('test render');
-    const search = this.props.location.search;
-    const name = new URLSearchParams(search).get("name");
-    const cat = new URLSearchParams(search).get("category");
-    const { getData } = this.state;
-    console.log('render test')
+    // console.log('test render');
+    // const search = this.props.location.search;
+    // const name = new URLSearchParams(search).get("name");
+    // const cat = new URLSearchParams(search).get("category");
+    // const { getData } = this.state;
     return (
       <>
         <Navbar prophistory={this.props} />
@@ -46,11 +45,11 @@ class Search extends Component {
           
           <div className="search">
             <div className="head">
-              <p>Searching for " {name} "</p>
-              <span>filter - {cat} </span>
+              {/* <p>Searching for " {name} "</p>
+              <span>filter - {cat} </span> */}
             </div>
             <div className="flex-list">
-              { 
+              {/* { 
                 getData && getData.map(
                   ({ id_product, product_name, product_price, product_by, product_sold}) => {
                     return(
@@ -63,7 +62,7 @@ class Search extends Component {
                     )
                   }
                 )
-              }
+              } */}
             </div>
           </div>
 
