@@ -3,7 +3,7 @@ import {Container} from 'react-bootstrap'
 import "../styles/pages/detail.css";
 import Navbar from '../components/navbar/navbar';
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import EditName from '../components/product/editName'
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
@@ -13,8 +13,15 @@ class Product extends Component {
   constructor(){
     super();
     this.state = {
-      getData: {}
+      getData: {},
+      editName: true,
     }
+  }
+
+  toggleEditName = () => {
+    this.setState({
+      editName: !this.state.editName
+    })
   }
 
   getProduct = async () => {
@@ -40,6 +47,8 @@ class Product extends Component {
     return (
       <>
       <Navbar prophistory={this.props} />
+      {!this.state.editName && <EditName hidden={this.toggleEditName} propsHistory={this.props}/>}
+      
       <main>
       <Container className="main">
         <p className="font-p-title">
@@ -103,7 +112,12 @@ class Product extends Component {
             </div>
           </div>
           <div className="col-sm-8">
-            <h3>{getData.product_name}</h3>
+            <div className="row" style={{display: "flex", flexDirection: "row", padding: "0px 15px"}}>
+
+              <h3>{getData.product_name}</h3>
+              <span style={{color: "#333333", fontSize:"small", marginLeft: "10px", cursor: "pointer"}} onClick={this.toggleEditName}>edit</span>
+
+            </div>
             <p className="font-p-title">
               <b>{getData.product_by}</b>
             </p>

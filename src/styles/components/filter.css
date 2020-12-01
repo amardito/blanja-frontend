@@ -2,7 +2,7 @@
   width: 100%;
   position: fixed;
   top: 85px;
-  z-index: 2;
+  z-index: 4;
   display: flex;
   justify-content: center;
 }
@@ -13,8 +13,11 @@
 }
 .filterMenu{
   position: absolute;
-  z-index: 3;
+  z-index: 5;
   top: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 @media screen and (max-width: 900px){
   .wrap{

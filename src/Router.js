@@ -10,7 +10,7 @@ function Router() {
     <BrowserRouter>
 
       <Route exact path="/" component={MainPage} />
-      <Route path="/product/:id"  component={Product} />
+      <Route exact path="/product/:id"  component={Product} />
       <Route exact path="/search" component={Search} />
 
     </BrowserRouter>
