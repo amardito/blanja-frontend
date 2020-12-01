@@ -17,8 +17,8 @@ nav{
  }
  
  .logo > img{
-   width: 119px;
-   cursor: pointer;
+  height: 40px;
+  cursor: pointer;
  }
  
  .search-area{
@@ -201,7 +201,7 @@ nav{
  }
  @media screen and (max-width : 720px){
    .logo > img{
-     width: 79px;
+     height: 30px;
    }
    .search-area{
      padding: 0; padding-left: 10px;
