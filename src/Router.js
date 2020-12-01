@@ -9,9 +9,9 @@ function Router() {
   return (
     <BrowserRouter>
 
-      <Route path="/" exact component={MainPage} />
-      <Route path="/product/:id" component={Product} />
-      <Route path="/search" component={Search} />
+      <Route exact path="/" component={MainPage} />
+      <Route path="/product/:id"  component={Product} />
+      <Route exact path="/search" component={Search} />
 
     </BrowserRouter>
   )
