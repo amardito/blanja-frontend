@@ -3,7 +3,7 @@ import '../styles/pages/main.css';
 import Navbar from '../components/navbar/navbar'
 // import SearchItems from '../components/search/searchItems';
 // import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 
 // const api = axios.create({
 //   baseURL: `http://localhost:1010/api/v1/`
