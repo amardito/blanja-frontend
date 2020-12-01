@@ -196,67 +196,14 @@ class Product extends Component {
 
             <div className="col-md-3">
               <div className="row">
-                <div className="side">
-                </div>
                 <div className="middle">
+                  <img src="/assets/icons/Rating 5 stars.svg" alt="rating"/>
                   <div className="bar-container">
                     <div className="bar-5"></div>
                   </div>
                 </div>
                 <div className="side right">
-                  <div> {getData.product_sold} </div>
-                </div>
-                <div className="side">
-                  <div>
-                    
-                  </div>
-                </div>
-                <div className="middle">
-                  <div className="bar-container">
-                    <div className="bar-4"></div>
-                  </div>
-                </div>
-                <div className="side right">
-                  <div>0</div>
-                </div>
-                <div className="side">
-                  <div>
-                    
-                  </div>
-                </div>
-                <div className="middle">
-                  <div className="bar-container">
-                    <div className="bar-3"></div>
-                  </div>
-                </div>
-                <div className="side right">
-                  <div>0</div>
-                </div>
-                <div className="side">
-                  <div>
-                    
-                  </div>
-                </div>
-                <div className="middle">
-                  <div className="bar-container">
-                    <div className="bar-2"></div>
-                  </div>
-                </div>
-                <div className="side right">
-                  <div>0</div>
-                </div>
-                <div className="side">
-                  <div>
-                    
-                  </div>
-                </div>
-                <div className="middle">
-                  <div className="bar-container">
-                    <div className="bar-1"></div>
-                  </div>
-                </div>
-                <div className="side right">
-                  <div>0</div>
+                  <div style={{display: "flex", alignItems: "flex-end", height: "100%", justifyContent: "flex-end"}}> {getData.product_sold} </div>
                 </div>
               </div>
             </div>
