@@ -70,7 +70,7 @@ export class Profile extends Component {
     console.log(this.state)
     return (
       <>
-        <Navbar />
+        <Navbar prophistory={this.props}/>
         <main>
           <div className="main-container">
 
