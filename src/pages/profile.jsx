@@ -66,7 +66,6 @@ export class Profile extends Component {
 
   render() {
     const { getCategory } = this.state;
-    console.log(this.state)
     return (
       <>
         <Navbar prophistory={this.props}/>

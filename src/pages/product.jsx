@@ -4,6 +4,7 @@ import "../styles/pages/detail.css";
 import Navbar from '../components/navbar/navbar';
 import axios from 'axios';
 import EditProduct from '../components/product/editProduct'
+import {Link} from 'react-router-dom'
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
@@ -44,7 +45,6 @@ class Product extends Component {
   }
 
   render() {
-    // console.log(this.props)
     const {getData} = this.state;
     return (
       <>
@@ -54,7 +54,9 @@ class Product extends Component {
       <main>
       <Container className="main">
         <p className="font-p-title">
-          Home {'>'} category {'>'} <b>{getData.category_name}</b>
+        <Link to={{
+          pathname: `/`
+        }}>Home</Link> {'>'} category {'>'} <b>{getData.category_name}</b>
         </p>
         <div className="row">
           <div className="col-sm-4">

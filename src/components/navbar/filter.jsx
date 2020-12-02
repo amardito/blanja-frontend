@@ -5,12 +5,6 @@ import {
  } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/components/filter.css"
-import axios from 'axios'
-
-
-const api = axios.create({
-  baseURL: `http://localhost:1010/api/v1/`
-})
 
 class Filter extends Component {
   constructor(props){
@@ -20,22 +14,10 @@ class Filter extends Component {
     }
   }
 
-  getAllCategory = async () => {
-    await api.get('category').then(({data}) => {
-      this.setState({
-        getCategory: data.data
-      })
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
-
-  // refreshPage() {
-  //   window.location.reload(false);
-  // }
-
   componentDidMount(){
-    this.getAllCategory();
+    this.setState({
+      getCategory: this.props.dataCategory
+    })
   }
 
   render() {
@@ -44,12 +26,19 @@ class Filter extends Component {
     
     return (
       <div className="wrap">
-        <div className="outer" onClick={hidden}>
-        </div>
+        
+        <div className="outer" onClick={(e)=>{
+          e.preventDefault()
+          hidden()
+        }}></div>
+
         <div className="filterMenu">
           <Card>
             <Card.Header className="d-flex flex-row align-items-center">
-              <button type="button" className="close pb-1" aria-label="Close" onClick={hidden}>
+              <button type="button" className="close pb-1" aria-label="Close" onClick={(e)=>{
+                e.preventDefault()
+                hidden()
+              }}>
                 <h1>&times;</h1>
               </button>
               <h2 className="pl-3">Filter</h2>
@@ -67,9 +56,6 @@ class Filter extends Component {
                                 <button type="submit" className="btnn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}} onClick={(e)=>{
                                   e.preventDefault()
                                   urlCategory(category_name)
-                                // if(e){
-                                //   this.refreshPage()
-                                // }
                                 }}>{ category_name }</button>
                             </div>
                           </div>

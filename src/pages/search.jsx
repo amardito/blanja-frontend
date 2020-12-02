@@ -16,6 +16,7 @@ class Search extends Component {
       getData: [],
     }
   }
+
   getAll = async () => {
     const search = this.props.location.search;
     await api.get(`search${search}`).then(({data}) => {
@@ -26,13 +27,19 @@ class Search extends Component {
       console.log(err);
     });
   }
+
   componentDidMount(){
     this.getAll()
     console.log(`search${this.props.location.search}`);
   }
 
+  componentDidUpdate(prevProps,prevState){
+    if(prevProps.location.search !== this.props.location.search){
+      this.getAll()
+    }
+  }
+
   render() {
-    console.log('test render');
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
     const cat = new URLSearchParams(search).get("category");

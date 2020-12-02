@@ -58,7 +58,6 @@ class MainPage extends Component {
   }
 
   render() {
-    console.log('test duplicate');
     const { getDataNew, getCategory, getDataPopular } = this.state;
     let popularItem,newItem,load
     load = () => {
@@ -109,7 +108,6 @@ class MainPage extends Component {
         )
       }
     }else {popularItem = load}
-    // console.log(this.props)
     return (
       <>
         <Navbar prophistory={this.props} />

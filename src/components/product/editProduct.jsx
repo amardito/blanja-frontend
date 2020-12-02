@@ -62,12 +62,18 @@ export default class EditProduct extends Component {
     const{ hidden } = this.props;
     return (
       <div className="wrap">
-        <div className="outer" onClick={hidden}>
-        </div>
+        <div className="outer" onClick={(e)=>{
+          e.preventDefault()
+          hidden()
+        }}></div>
+
         <div className="filterMenu">
           <Card>
             <Card.Header className="d-flex flex-row align-items-center" style={{maxHeight: '60px'}}>
-              <button type="button" className="close mb-1" aria-label="Close" onClick={hidden}>
+              <button type="button" className="close mb-1" aria-label="Close" onClick={(e)=>{
+                e.preventDefault()
+                hidden()
+              }}>
                 <h2 className="m-0">&times;</h2>
               </button>
               <h4 className="pl-3 m-0">Update Product</h4>
