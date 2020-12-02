@@ -146,9 +146,22 @@ main{
   margin-left: -2px;
 }.item-rate span{margin-left: -15px; color: #222222;}
 
+.tags{padding: 0 10px;}
 .new{margin-bottom: 30px; padding: 0 10px;}
 .popular{margin-bottom: 30px; padding: 0 10px;}
 .search{margin-bottom: 30px; padding: 0 10px;}
+
+.DIuaA{
+  background-color: #00000070 !important;
+  box-shadow: 0 0 1px 3px #b6b6b6f5 !important;
+}
+.bTybGL{background-color: #00000015 !important;}
+.bTybGL:hover:enabled,.bTybGL:focus:enabled{background-color: #777777a2 !important; color: #ffffff !important;}
+.bTybGL:disabled {cursor: default !important;color: #ffffff !important;}
+
+.kyJvRZ{background-color: #00000015 !important;}
+.kyJvRZ:hover:enabled,.kyJvRZ:focus:enabled{background-color: #777777a2 !important; color: #ffffff !important;}
+.kyJvRZ:disabled {cursor: default !important;color: #ffffff !important;}
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

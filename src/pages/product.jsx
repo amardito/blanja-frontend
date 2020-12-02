@@ -16,6 +16,50 @@ class Product extends Component {
     this.state = {
       getData: {},
       EditProduct: true,
+      maxQty: 0,
+      qty: 1,
+      isDecDisable: true,
+      isIncDisable: false
+    }
+    this.handleBag = this.handleBag.bind(this);
+  }
+
+  handleBag = () => {
+
+    const dataItem = {
+      product_name: this.state.getData.product_name,
+      item_qty: this.state.qty,
+      product_price: this.state.getData.product_price,
+    }
+    // console.log(this.props)
+    localStorage.setItem(this.state.getData.id_product, JSON.stringify(dataItem));
+  };
+
+  handleQtyInc=()=>{
+    if(this.state.qty === this.state.maxQty){
+      this.setState({
+        isIncDisable: true,
+        qty: this.state.qty + 1        
+      })
+    }else{
+      this.setState({
+        qty: this.state.qty + 1,
+        isDecDisable: false
+      })
+    }    
+  }
+
+  handleQtydec=()=>{
+    if(this.state.qty === 2){
+      this.setState({
+        isDecDisable: true,
+        qty: this.state.qty - 1
+      })
+    }else{
+      this.setState({
+        qty: this.state.qty - 1,
+        isIncDisable: false
+      })
     }
   }
 
@@ -28,7 +72,8 @@ class Product extends Component {
   getProduct = async () => {
     await api.get(this.props.location.pathname).then(({data}) => {
       this.setState({
-        getData: data
+        getData: data,
+        maxQty: data.product_qty - 1
       })
     }).catch((err) => {
       console.log(err);
@@ -46,6 +91,7 @@ class Product extends Component {
 
   render() {
     const {getData} = this.state;
+    console.log(this.state);
     return (
       <>
       <Navbar prophistory={this.props} />
@@ -162,8 +208,24 @@ class Product extends Component {
                   <b>Jumlah</b>
                 </p>
                 <ul className="horizontal-list d-flex justify-center">
+                <li>
+                    <button className="color-selected rounded-circle" disabled={this.state.isDecDisable} id="#decQty" onClick={(e)=>{
+                      e.preventDefault()
+                      this.handleQtydec()
+                    }}>
+                      -
+                    </button>
+                  </li>
+                  <li style={{ margin: "0.2rem 1rem" }}>
+                    <span>{this.state.qty}</span>
+                  </li>
                   <li>
-                    {getData.product_qty}
+                    <button className="color-selected rounded-circle" disabled={this.state.isIncDisable} id="#incQty" onClick={(e)=>{
+                      e.preventDefault()
+                      this.handleQtyInc()
+                    }}>
+                      +
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -175,10 +237,16 @@ class Product extends Component {
               }}>
                 Delete
               </button>
-              <button className="btnGrup btn-add-bag mt-2">
+              <button className="btnGrup btn-add-bag mt-2" onClick={(e)=>{
+                e.preventDefault()
+                this.handleBag()
+              }}>
                 Add bag
               </button>
-              <button className="btnGrup btn-buy mt-2">
+              <button className="btnGrup btn-buy mt-2" onClick={(e)=>{
+                e.preventDefault()
+                this.handleBag()
+              }}>
                 Buy Now
               </button>
             </div>
@@ -238,10 +306,17 @@ class Product extends Component {
             }}>
             Delete
           </button>
-          <button className="btnBtm btn-add-bag mt-2">
+          <button className="btnBtm btn-add-bag mt-2" onClick={(e)=>{
+            e.preventDefault()
+            this.handleBag()
+          }}>
             Add bag
           </button>
-          <button className="btnBtm btn-buy mt-2">
+          <button className="btnBtm btn-buy mt-2"
+          onClick={(e)=>{
+            e.preventDefault()
+            this.handleBag()
+          }}>
             Buy Now
           </button>
         </div>

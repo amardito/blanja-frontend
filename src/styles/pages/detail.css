@@ -8,10 +8,10 @@ main{
   margin-top: 50px;
 }
 
-.font-p-title {
+.font-p-title, a {
   font-size: medium;
   color: #585858;
-}
+} a:hover{color: #585858; text-decoration: underline;}
 
 ul.horizontal-list {
   min-width: 100%;
@@ -20,7 +20,7 @@ ul.horizontal-list {
 }
 
 ul.horizontal-list li {
-  margin: 0 10px 0 0;
+  padding: 0 4px;
   display: inline;
 }
 
@@ -32,13 +32,20 @@ ul.horizontal-list li {
   color: orange;
 }
 .color-selected {
-  width: 40px;
-  height: 40px;
+  font-size: xx-large;
+  font-weight: 600;
+  padding-bottom: 8px;
+  width: 30px;
+  height: 30px;
+  border: none;
   border-spacing: 10px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-}
+  background-color: #dddddd4f;
+  box-shadow: 0 0 1px 3px #cecece96;
+  cursor: pointer;
+}.color-selected:hover{background-color: #ddddddb4;}.color-selected:disabled{color: #c0c0c0; background-color: #dddddd4f; cursor: default;}
 .color-option {
   display: inline-block;
   width: 30px;

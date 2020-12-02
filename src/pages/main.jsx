@@ -6,6 +6,7 @@ import Navbar from '../components/navbar/navbar';
 import '../styles/pages/main.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Carousell from '../components/main/carousell';
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
@@ -115,26 +116,7 @@ class MainPage extends Component {
         <div className="main-container">
 
           <div className="tags">
-            <div className="list">
-
-              <div className="item-tags">
-                <img src="/assets/img/ian-dooley-10ca-K3e6Ko-unsplash 1.png" alt="tags"/>
-                <p className="item-text">Black edition</p>
-              </div>
-              <div className="item-tags">
-                <img src="/assets/img/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="tags"/>
-                <p className="item-text">Trends in 2020</p>
-              </div>
-              <div className="item-tags">
-                <img src="/assets/img/ian-dooley-10ca-K3e6Ko-unsplash 1.png" alt="tags"/>
-                <p className="item-text">Black edition</p>
-              </div>
-              <div className="item-tags">
-                <img src="/assets/img/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt="tags"/>
-                <p className="item-text">Trends in 2020</p>
-              </div>
-
-            </div>
+            <Carousell/>
           </div>
           
           <div className="category">
