@@ -3,7 +3,7 @@ import {Container} from 'react-bootstrap'
 import "../styles/pages/detail.css";
 import Navbar from '../components/navbar/navbar';
 import axios from 'axios';
-import EditName from '../components/product/editName'
+import EditProduct from '../components/product/editProduct'
 
 const api = axios.create({
   baseURL: `http://localhost:1010/api/v1/`
@@ -14,13 +14,13 @@ class Product extends Component {
     super();
     this.state = {
       getData: {},
-      editName: true,
+      EditProduct: true,
     }
   }
 
-  toggleEditName = () => {
+  toggleEditProduct = () => {
     this.setState({
-      editName: !this.state.editName
+      EditProduct: !this.state.EditProduct
     })
   }
 
@@ -47,7 +47,7 @@ class Product extends Component {
     return (
       <>
       <Navbar prophistory={this.props} />
-      {!this.state.editName && <EditName hidden={this.toggleEditName} propsHistory={this.props}/>}
+      {!this.state.EditProduct && <EditProduct hidden={this.toggleEditProduct} propsHistory={this.props}/>}
       
       <main>
       <Container className="main">
@@ -115,7 +115,7 @@ class Product extends Component {
             <div className="row" style={{display: "flex", flexDirection: "row", padding: "0px 15px"}}>
 
               <h3>{getData.product_name}</h3>
-              <span style={{color: "#333333", fontSize:"small", marginLeft: "10px", cursor: "pointer"}} onClick={this.toggleEditName}>edit</span>
+              <span style={{color: "#333333", fontSize:"small", marginLeft: "10px", cursor: "pointer"}} onClick={this.toggleEditProduct}>edit</span>
 
             </div>
             <p className="font-p-title">

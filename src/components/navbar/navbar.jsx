@@ -24,9 +24,11 @@ class Navbar extends Component {
     this.setState({
       navMenu: () => {
         return(
-          <div className="btn-wrap" style={{width: "auto"}}>
+          <Link to={{
+              pathname: `/profile`
+            }} className="btn-wrap" style={{width: "auto"}}>
             <img src="/assets/img/christian-buehner-DItYlc26zVI-unsplash 1.png" alt="profile"/>
-          </div>
+          </Link>
         )
       }
     })
