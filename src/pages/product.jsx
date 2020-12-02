@@ -36,6 +36,7 @@ class Product extends Component {
 
   deleteProduct = async() => {
     await api.delete(`product/delete/${this.state.getData.id_product}`)
+    this.props.history.push('/')
   }
 
   componentDidMount = () => {
@@ -43,6 +44,7 @@ class Product extends Component {
   }
 
   render() {
+    // console.log(this.props)
     const {getData} = this.state;
     return (
       <>
@@ -115,7 +117,10 @@ class Product extends Component {
             <div className="row" style={{display: "flex", flexDirection: "row", padding: "0px 15px"}}>
 
               <h3>{getData.product_name}</h3>
-              <span style={{color: "#333333", fontSize:"small", marginLeft: "10px", cursor: "pointer"}} onClick={this.toggleEditProduct}>edit</span>
+              <span style={{color: "#333333", fontSize:"small", marginLeft: "10px", cursor: "pointer"}} onClick={(e)=>{
+                e.preventDefault()
+                this.toggleEditProduct()
+              }}>edit</span>
 
             </div>
             <p className="font-p-title">
@@ -162,10 +167,9 @@ class Product extends Component {
               </div>
             </div>
             <div className=" d-flex justify-content-between">
-              <button className="btnGrup btn-chart mt-2" onClick={(e)=>{this.deleteProduct()
-                if(e){
-                  window.location.href='/'
-                }
+              <button className="btnGrup btn-chart mt-2" onClick={(e)=>{
+                e.preventDefault()
+                this.deleteProduct()
               }}>
                 Delete
               </button>
@@ -226,11 +230,10 @@ class Product extends Component {
         
         {/* Menu Bottom */}
         <div className="btn d-flex d-lg-none">
-          <button className="btnBtm btn-chart mt-2" onClick={(e)=>{this.deleteProduct()
-            if(e){
-              window.location.href='/'
-            }
-          }}>
+          <button className="btnBtm btn-chart mt-2" onClick={(e)=>{
+            e.preventDefault()
+          this.deleteProduct()
+            }}>
             Delete
           </button>
           <button className="btnBtm btn-add-bag mt-2">

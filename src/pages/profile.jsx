@@ -52,12 +52,11 @@ export class Profile extends Component {
         'Content-Type': 'application/json'
       }
     })
-    .then((data)=>{
+    .then(()=>{
       console.log('succsess create new data');
     }).catch((e)=>{
       console.log(e);
     })
-    alert('Data Berhasil ditambahkan')
     this.props.history.push('/')
   }
 
