@@ -20,7 +20,12 @@ class Navbar extends Component {
             e.preventDefault()
             this.toggleLogin()
           }}/>
-          <input type="button" value="Signup" className="btnn secondary"/>
+          <input type="button" value="Signup" className="btnn secondary" onClick={(e)=>{
+            e.preventDefault();
+            this.props.prophistory.history.push({ 
+              pathname: '/auth',
+            })
+          }}/>
         </div>
         )
       },

@@ -12,7 +12,7 @@ function Router() {
     <BrowserRouter>
 
       <Route exact path="/" component={MainPage} />
-      <Route exact path="/auth" component={Auth} />
+      <Route path="/auth" component={Auth} />
       <Route exact path="/product/:id"  component={Product} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/profile" component={Profile} />

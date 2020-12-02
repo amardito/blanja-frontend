@@ -1,0 +1,112 @@
+.main-auth{
+  margin: auto;
+  max-width: 550px;
+  height: 100vh;
+  padding: 10vmin 0;
+}
+.icon-head-auth{
+  min-width: 135px;
+}
+.head-auth > p{
+  font-size: 18px;
+  line-height: 18px;
+  color: #222222;
+  margin-top: 4.5vmin;
+  margin-bottom: 5.5vmin;
+  font-family:'Metropolis Bold';
+  text-align: center;
+}
+.sub-head-auth > p{
+  font-size: 14px;
+  line-height: 20px;
+  color: #F01F0E;
+  margin-bottom: 5.5vmin;
+  font-family:'Metropolis Medium';
+  text-align: center;
+}
+.select-1{
+  padding: 14px 22px;
+  background-color: #DB3022;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 4px 0px 0px 4px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.select-1 > p {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.select-2{
+  padding: 14px 41px;
+  border: 1px solid #9B9B9B;
+  border-left: none;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 0px 4px 4px 0px;
+  color: #666666;
+  cursor: pointer;
+}
+.select-2:hover{
+  border: 1px solid #DB3022;
+  border-left: none;
+  color: #DB3022;
+  font-family: 'Metropolis Medium';
+}
+.select-2 > p {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+}
+.form-auth input{
+  font-family: 'Metropolis Medium' !important;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 16.5px 0;
+  padding-left: 23.2px;
+  padding-right: 3px;
+  border: 1px solid #9B9B9B;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+.txtLink-auth a{
+  margin-bottom: 26px;
+  text-decoration: none;
+  color: #DB3022;
+}
+.txtLink-auth a:hover{
+  font-family: 'Metropolis Medium';
+  text-decoration: none;
+  color: #222222;
+}
+input.submit-auth{
+  background: #DB3022;
+  margin-bottom: 40px;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  height: 50px;
+}
+input.submit-auth:hover{
+  color: #ffffff;
+  background-color: #db3122d3;
+  font-family: 'Metropolis Medium';
+}
+@media screen and (max-width: 575px){
+  .form-auth{
+    padding: 5px;
+  }
+  input.submit-auth{
+    height: 40px;
+  }
+  .txtLink-auth > .custom-auth{
+    padding-right: 20px;
+  }
+}
