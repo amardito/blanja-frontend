@@ -17,7 +17,8 @@ export class Profile extends Component {
       product_qty: '',
       category_id: '',
       product_desc: '',
-      getCategory: []
+      getCategory: [],
+      product_img: ''
     }
 
   }
@@ -44,7 +45,8 @@ export class Profile extends Component {
       product_qty: this.state.product_qty,
       category_id: this.state.category_id,
       product_desc: this.state.product_desc,
-      product_sold: 0
+      product_sold: 0,
+      product_img: this.state.product_img,
     })
     // console.log(data);
     await api.post(`product/create`, data,{
@@ -97,6 +99,10 @@ export class Profile extends Component {
                 <Form.Group controlId="productDesc">
                     <Form.Label>Product Description</Form.Label>
                     <Form.Control type="text" name="product_desc" placeholder="Product Description"  onChange={this.handlerChange}  required/>
+                </Form.Group>
+                <Form.Group controlId="productDesc">
+                    <Form.Label>Product Image</Form.Label>
+                    <Form.Control type="text" name="product_img" placeholder="put your image link on here"  onChange={this.handlerChange}  required/>
                 </Form.Group>
                 <Form.Group controlId="productQty">
                     <Form.Label>Product Quantity</Form.Label>
