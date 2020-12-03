@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:1010/api/v1/`
+  baseURL: process.env.REACT_APP_BASEURL
 });
 
 class Search extends Component {

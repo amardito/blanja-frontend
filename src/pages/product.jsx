@@ -7,7 +7,7 @@ import EditProduct from '../components/product/editProduct'
 import {Link} from 'react-router-dom'
 
 const api = axios.create({
-  baseURL: `http://localhost:1010/api/v1/`
+  baseURL: process.env.REACT_APP_BASEURL
 });
 
 class Product extends Component {

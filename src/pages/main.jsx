@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Carousell from '../components/main/carousell';
 
 const api = axios.create({
-  baseURL: `http://localhost:1010/api/v1/`
+  baseURL: process.env.REACT_APP_BASEURL
 });
 
 class MainPage extends Component {

@@ -4,7 +4,7 @@ import Navbar from '../components/navbar/navbar'
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:1010/api/v1/`
+  baseURL: process.env.REACT_APP_BASEURL
 });
 
 export class Profile extends Component {

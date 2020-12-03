@@ -8,7 +8,7 @@ import "../../styles/components/filter.css";
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:1010/api/v1/`
+  baseURL: process.env.REACT_APP_BASEURL
 });
 
 export default class EditProduct extends Component {
