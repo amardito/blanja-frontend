@@ -195,10 +195,16 @@ class Product extends Component {
             <div className="row" style={{display: "flex", flexDirection: "row", padding: "0px 15px"}}>
 
               <h3>{getData.product_name}</h3>
-              <span style={{color: "#333333", fontSize:"small", marginLeft: "10px", cursor: "pointer"}} onClick={(e)=>{
+              <span style={{color: "#333333", fontSize:"medium", marginLeft: "10px", cursor: "pointer"}} onClick={(e)=>{
                 e.preventDefault()
                 this.toggleEditProduct()
               }}>edit</span>
+              <span style={{color: "#DB3022",fontWeight: "bold", fontSize:"medium", marginLeft: "10px", cursor: "pointer"}} onClick={(e)=>{
+                e.preventDefault()
+                this.deleteProduct()
+              }}>
+                delete
+              </span>
 
             </div>
             <p className="font-p-title">
@@ -261,11 +267,8 @@ class Product extends Component {
               </div>
             </div>
             <div className=" d-flex justify-content-between">
-              <button className="btnGrup btn-chart mt-2" onClick={(e)=>{
-                e.preventDefault()
-                this.deleteProduct()
-              }}>
-                Delete
+              <button className="btnGrup btn-chart mt-2" >
+                Chat
               </button>
               <button className="btnGrup btn-add-bag mt-2" onClick={(e)=>{
                 e.preventDefault()
@@ -324,11 +327,8 @@ class Product extends Component {
         
         {/* Menu Bottom */}
         <div className="btn d-flex d-lg-none justify-content-center">
-          <button className="btnBtm btn-chart mt-2" onClick={(e)=>{
-            e.preventDefault()
-          this.deleteProduct()
-            }}>
-            Delete
+          <button className="btnBtm btn-chart mt-2" >
+            Chat
           </button>
           <button className="btnBtm btn-add-bag mt-2" onClick={(e)=>{
             e.preventDefault()
