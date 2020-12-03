@@ -59,7 +59,7 @@ export default class ItemCart extends Component {
                 className="card-img w-100 m-0 "
                 alt="..."/>
             </div>
-            <div className="col-md-9 col-lg-6 d-flex flex-row justify-content-start align-items-center p-0 mt-md-0 mt-4">
+            <div className="col-md-9 col-lg-4 d-flex flex-row justify-content-start align-items-center p-0 mt-md-0 mt-4">
               
               <div className="col-md-0 col-1 d-flex justify-content-start d-md-none p-0">
                 <div className="form-check mx-auto checked-box p-0 d-sm-block d-md-none">
@@ -76,7 +76,7 @@ export default class ItemCart extends Component {
               </div>
             
             </div>
-            <div className="col-md-4 col-lg-3 d-flex justify-content-center align-items-center p-0 mt-lg-0 mt-4">
+            <div className="col-md-4 col-lg-2 d-flex justify-content-center align-items-center p-0 mt-lg-0 mt-4">
               <ul className="horizontal-list d-flex justify-content-lg-end flex-row p-0 m-0">
                 <li>
                     <button className="color-selected rounded-circle" disabled={this.state.isDecDisable} id="#decQty" onClick={(e)=>{
@@ -99,7 +99,7 @@ export default class ItemCart extends Component {
                   </li>
                 </ul>
             </div>
-            <div className="col-md-8 col-lg-4 d-flex justify-content-start align-items-center pl-lg-3 p-0 mt-4">
+            <div className="col-md-8 col-lg-3 d-flex justify-content-start align-items-center pl-lg-3 p-0 mt-lg-0 mt-4">
               <p className="cost h5">IDR {this.props.productPrice}</p>
             </div>
           </div>

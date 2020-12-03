@@ -81,7 +81,7 @@ export default class Mybag extends Component {
                       Select all items
                     </p>
                     <p className="card-text m-0">
-                      (2 items selected)
+                      (? items selected)
                     </p>
                   </div>
                   <div className="col-3 d-flex justify-content-center align-items-center">
@@ -100,7 +100,7 @@ export default class Mybag extends Component {
                 getData && getData.map(
                   ({ id_product, product_name, product_price, product_by, max_qty, item_qty}) => {
                     return(
-                      <ItemCart key={id_product} productName={product_name} productBy={product_by} productPrice={product_price} productQty={max_qty} itemQty={item_qty} />
+                      <ItemCart key={id_product} productName={product_name} productBy={product_by} productPrice={parseInt( product_price ).toLocaleString()} productQty={max_qty} itemQty={item_qty} />
                     )
                   }
                 )

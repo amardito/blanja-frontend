@@ -100,6 +100,7 @@ class Product extends Component {
 
   render() {
     const {getData} = this.state;
+    const price = parseInt( getData.product_price ).toLocaleString()
     return (
       <>
       <Navbar prophistory={this.props} />
@@ -190,7 +191,7 @@ class Product extends Component {
               <b>Price</b>
             </p>
             <h2 className="mt-n3">
-              <b>IDR {getData.product_price}</b>
+              <b>IDR {price}</b>
             </h2>
             <p className="font-p-title ml-1 mt-3 text-dark">
               <b> Color </b>
