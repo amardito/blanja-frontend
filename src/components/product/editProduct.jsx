@@ -17,6 +17,7 @@ export default class EditProduct extends Component {
     this.state = {
       product_name: '',
       product_price: '',
+      product_desc: '',
       idProduct: '',
       getData: []
     }
@@ -27,7 +28,8 @@ export default class EditProduct extends Component {
       this.setState({
         getData: data,
         product_name: data.product_name,
-        product_price: data.product_price
+        product_price: data.product_price,
+        product_desc: data.product_desc
       })
     }).catch((err) => {
       console.log(err);
@@ -37,7 +39,8 @@ export default class EditProduct extends Component {
   updateProduct = async () => {
     const data = JSON.stringify({
       product_name: this.state.product_name,
-      product_price: this.state.product_price
+      product_price: this.state.product_price,
+      product_desc: this.state.product_desc
     })
     await api.put(`product/update/${this.state.idProduct}`,data,{
       headers: {
@@ -96,6 +99,14 @@ export default class EditProduct extends Component {
                   <Form.Control type="number" placeholder={this.state.getData.product_price} onChange={(e)=>{
                     this.setState({
                         product_price: `${e.target.value}`
+                    })
+                  }}/>
+                </Form.Group>
+                <Form.Group controlId="ProductDesc">
+                  <Form.Label>Change Product Description</Form.Label>
+                  <Form.Control type="text" placeholder={this.state.getData.product_desc} onChange={(e)=>{
+                    this.setState({
+                      product_desc: `${e.target.value}`
                     })
                   }}/>
                 </Form.Group>

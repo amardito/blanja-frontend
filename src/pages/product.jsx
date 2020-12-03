@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import {Container} from 'react-bootstrap'
 import "../styles/pages/detail.css";
 import Navbar from '../components/navbar/navbar';
-import axios from 'axios';
 import EditProduct from '../components/product/editProduct'
-import {Link} from 'react-router-dom'
+import SearchItems from '../components/search/searchItems';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASEURL
@@ -19,9 +20,21 @@ class Product extends Component {
       maxQty: 0,
       qty: 1,
       isDecDisable: true,
-      isIncDisable: false
+      isIncDisable: false,
+      refData: []
     }
     this.handleBag = this.handleBag.bind(this);
+  }
+
+  getAll = async () => {
+    const search = `?category=${this.state.getData.category_name}`
+    await api.get(`search${search}`).then(({data}) => {
+      this.setState({
+        refData: data.data
+      })
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   handleBag = () => {
@@ -98,9 +111,16 @@ class Product extends Component {
   componentDidMount = () => {
     this.getProduct();
   }
+  
+  componentDidUpdate = (prevProps,prevState) => {
+    if(prevState.getData !== this.state.getData){
+      this.getAll();
+    }
+  }
 
   render() {
     const {getData} = this.state;
+    const {refData} = this.state;
     const price = parseInt( getData.product_price ).toLocaleString()
     return (
       <>
@@ -276,37 +296,31 @@ class Product extends Component {
           </p>
           <p> {getData.product_desc} </p>
         </div>
-        <h2>Product Review</h2>
 
-        <Container style={{ marginBottom: "70px" }}>
-          <div className="row">
-            <div className="col-md-3 align-item-center justify-content-center">
-              <h1 className="display-1 d-inline">
-                <b>5.0</b>
-              </h1>
-              <p className="d-inline-block ml-1 mt-3 text-dark">
-                <b>/ {getData.product_sold} </b>
-              </p>
-              <div className="rating mt-n2 ml-1 d-flex">
-                
-              </div>
+        <div className="search">
+            <div className="head">
+              <p>Product Like this</p>
+              <span>Here result for product like this</span>
             </div>
-
-            <div className="col-md-3">
-              <div className="row">
-                <div className="middle">
-                  <img src="/assets/icons/Rating 5 stars.svg" alt="rating"/>
-                  <div className="bar-container">
-                    <div className="bar-5"></div>
-                  </div>
-                </div>
-                <div className="side right">
-                  <div style={{display: "flex", alignItems: "flex-end", height: "100%", justifyContent: "flex-end"}}> {getData.product_sold} </div>
-                </div>
-              </div>
+            <div className="flex-list">
+              { 
+                refData && refData.map(
+                  ({ id_product, product_name, product_price, product_by, product_sold, product_img}) => {
+                    return(
+                      <Link key={id_product} className="items" to={{
+                          pathname:`/product/${id_product}`,
+                          state: {id_product}
+                        }}>
+                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
+                      </Link>
+                    )
+                  }
+                )
+              }
             </div>
           </div>
-        </Container>
+
+        
         
         {/* Menu Bottom */}
         <div className="btn d-flex d-lg-none justify-content-center">
