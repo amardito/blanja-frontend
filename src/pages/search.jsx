@@ -58,13 +58,13 @@ class Search extends Component {
             <div className="flex-list">
               { 
                 getData && getData.map(
-                  ({ id_product, product_name, product_price, product_by, product_sold}) => {
+                  ({ id_product, product_name, product_price, product_by, product_sold, product_img}) => {
                     return(
                       <Link key={id_product} className="items" to={{
                           pathname:`/product/${id_product}`,
                           state: {id_product}
                         }}>
-                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
+                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
                       </Link>
                     )
                   }

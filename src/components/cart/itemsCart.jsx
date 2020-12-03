@@ -55,7 +55,7 @@ export default class ItemCart extends Component {
               </div>
             </div>
             <div className="col-md-2 d-flex justify-content-center align-items-center pr-md-2 p-0">
-              <img src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+              <img src={this.props.productImg}
                 className="card-img w-100 m-0 "
                 alt="..."/>
             </div>

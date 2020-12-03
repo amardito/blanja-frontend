@@ -27,6 +27,7 @@ class Product extends Component {
   handleBag = () => {
     const prevData = JSON.parse(localStorage.getItem('belanjaUser'))
     const dataItem = {
+      product_img: this.state.getData.product_img,
       product_name: this.state.getData.product_name,
       product_by: this.state.getData.product_by,
       item_qty: this.state.qty,
@@ -116,7 +117,7 @@ class Product extends Component {
         <div className="row">
           <div className="col-sm-4">
             <img
-              src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+              src={this.state.getData.product_img}
               alt="img"
               className="rounded img-fluid"
             />
@@ -125,7 +126,7 @@ class Product extends Component {
                 <li>
                   
                     <img
-                      src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+                      src={this.state.getData.product_img}
                       alt="img"
                       className="rounded small-images"
                     />
@@ -134,7 +135,7 @@ class Product extends Component {
                 <li>
                   
                     <img
-                      src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+                      src={this.state.getData.product_img}
                       alt="img"
                       className="rounded small-images"
                     />
@@ -143,7 +144,7 @@ class Product extends Component {
                 <li>
                   
                     <img
-                      src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+                      src={this.state.getData.product_img}
                       alt="img"
                       className="rounded small-images"
                     />
@@ -152,7 +153,7 @@ class Product extends Component {
                 <li>
                   
                     <img
-                      src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+                      src={this.state.getData.product_img}
                       alt="img"
                       className="rounded small-images"
                     />
@@ -161,7 +162,7 @@ class Product extends Component {
                 <li>
                   
                     <img
-                      src="https://res.cloudinary.com/devloops7/image/upload/v1606663570/newBlanja/T-shirt_ikcavv.png"
+                      src={this.state.getData.product_img}
                       alt="img"
                       className="rounded small-images"
                     />

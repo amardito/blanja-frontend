@@ -86,7 +86,7 @@ export default class Mybag extends Component {
                   </div>
                   <div className="col-3 d-flex justify-content-center align-items-center">
                     <div className="text-danger text-lg-right m-0">
-                      <p className="h5 m-0" onClick={(e)=>{
+                      <p className="h5 m-0" style={{cursor: 'pointer'}} onClick={(e)=>{
                         e.preventDefault()
                         this.clearLocalStorage()
                       }}>Delete</p>
@@ -98,9 +98,9 @@ export default class Mybag extends Component {
 
               {
                 getData && getData.map(
-                  ({ id_product, product_name, product_price, product_by, max_qty, item_qty}) => {
+                  ({ id_product, product_name, product_price, product_by, max_qty, item_qty, product_img}) => {
                     return(
-                      <ItemCart key={id_product} productName={product_name} productBy={product_by} productPrice={parseInt( product_price ).toLocaleString()} productQty={max_qty} itemQty={item_qty} />
+                      <ItemCart key={id_product} productImg={product_img} productName={product_name} productBy={product_by} productPrice={product_price} productQty={max_qty} itemQty={item_qty} />
                     )
                   }
                 )

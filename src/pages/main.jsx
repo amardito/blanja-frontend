@@ -76,13 +76,13 @@ class MainPage extends Component {
       newItem = () => {
         return(
           getDataNew && getDataNew.map(
-            ({ id_product, product_name, product_price, product_by, product_sold}) => {
+            ({ id_product, product_name, product_price, product_by, product_sold, product_img}) => {
               return(
                 <Link key={id_product} className="items" to={{
                     pathname:`/product/${id_product}`,
                     state: {id_product}
                   }}>
-                  <New title={product_name} price={product_price} ownerShop={product_by} sold={product_sold}/>
+                  <New title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
                 </Link>
               )
             }
@@ -94,13 +94,13 @@ class MainPage extends Component {
       popularItem = () => {
         return(
           getDataPopular && getDataPopular.map(
-            ({ id_product, product_name, product_price, product_by, product_sold}) => {
+            ({ id_product, product_name, product_price, product_by, product_sold, product_img}) => {
               return(
                 <Link key={id_product} className="items" to={{
                     pathname: `/product/${id_product}`,
                     state: {id_product}
                   }}>
-                  <Popular title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} />
+                  <Popular title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
                 </Link>
               )
             }
