@@ -58,7 +58,7 @@ export default class EditProduct extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const{ hidden } = this.props;
     return (
       <div className="wrap">

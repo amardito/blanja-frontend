@@ -25,14 +25,23 @@ class Product extends Component {
   }
 
   handleBag = () => {
-
+    const prevData = JSON.parse(localStorage.getItem('belanjaUser'))
     const dataItem = {
       product_name: this.state.getData.product_name,
+      product_by: this.state.getData.product_by,
       item_qty: this.state.qty,
       product_price: this.state.getData.product_price,
+      max_qty : this.state.maxQty,
+      id_product : this.state.getData.id_product
     }
-    // console.log(this.props)
-    localStorage.setItem(this.state.getData.id_product, JSON.stringify(dataItem));
+    let newData = []
+    if(prevData === [] || prevData === null){
+      newData[0] = dataItem
+    }else{
+      newData[0] = dataItem
+      newData = prevData.concat(newData)
+    }    
+    localStorage.setItem('belanjaUser', JSON.stringify(newData));
   };
 
   handleQtyInc=()=>{
@@ -91,7 +100,6 @@ class Product extends Component {
 
   render() {
     const {getData} = this.state;
-    console.log(this.state);
     return (
       <>
       <Navbar prophistory={this.props} />
@@ -299,7 +307,7 @@ class Product extends Component {
         </Container>
         
         {/* Menu Bottom */}
-        <div className="btn d-flex d-lg-none">
+        <div className="btn d-flex d-lg-none justify-content-center">
           <button className="btnBtm btn-chart mt-2" onClick={(e)=>{
             e.preventDefault()
           this.deleteProduct()

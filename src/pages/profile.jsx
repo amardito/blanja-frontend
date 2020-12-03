@@ -46,7 +46,7 @@ export class Profile extends Component {
       product_desc: this.state.product_desc,
       product_sold: 0
     })
-    console.log(data);
+    // console.log(data);
     await api.post(`product/create`, data,{
       headers: {
         'Content-Type': 'application/json'

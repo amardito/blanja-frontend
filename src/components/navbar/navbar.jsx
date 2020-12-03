@@ -132,7 +132,12 @@ class Navbar extends Component {
             </div>
   
             <div className="nav-btn">
-              <img src="/assets/icons/shopping-cart.svg" alt="cartIcon" className="cart-icon"/>
+              <img src="/assets/icons/shopping-cart.svg" alt="cartIcon" className="cart-icon" onClick={(e)=>{
+                e.preventDefault()
+                this.props.prophistory.history.push({ 
+                  pathname: '/mybag'
+                })
+              }}/>
               <this.state.navMenu/>
             </div>
   
@@ -140,7 +145,12 @@ class Navbar extends Component {
               <button className="btnn primary">Menu</button>
               <div className="menu-list">
                 
-                <div className="menu">
+                <div className="menu" onClick={(e)=>{
+                  e.preventDefault()
+                  this.props.prophistory.history.push({ 
+                    pathname: '/mybag'
+                  })
+                }}>
                   <img src="/assets/icons/shopping-cart.svg" alt="cartIcon" className="cart-icon"/>
                   <p>My Cart</p>
                 </div>

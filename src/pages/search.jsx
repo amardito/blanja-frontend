@@ -30,7 +30,7 @@ class Search extends Component {
 
   componentDidMount(){
     this.getAll()
-    console.log(`search${this.props.location.search}`);
+    // console.log(`search${this.props.location.search}`);
   }
 
   componentDidUpdate(prevProps,prevState){

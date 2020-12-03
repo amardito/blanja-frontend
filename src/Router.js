@@ -6,6 +6,7 @@ import Product from './pages/product'
 import Search from './pages/search';
 import Profile from './pages/profile';
 import Auth from './pages/auth';
+import Mybag from './pages/cart';
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route exact path="/product/:id"  component={Product} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/mybag" component={Mybag} />
 
     </BrowserRouter>
   )

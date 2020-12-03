@@ -12,24 +12,24 @@ export default function Carousell() {
   return (
       <Carousel breakPoints={breakPoints}>
 
-          <div class='item-tags'>
+          <div className='item-tags'>
             <img src="/assets/img/ian-dooley-10ca-K3e6Ko-unsplash 1.png" alt='tags' />
-            <p class='item-text'>Trends in 2020</p>
+            <p className='item-text'>Trends in 2020</p>
           </div>
 
-          <div class='item-tags'>
+          <div className='item-tags'>
             <img src="/assets/img/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt='tags' />
-            <p class='item-text'>Black edition</p>
+            <p className='item-text'>Black edition</p>
           </div>
 
-          <div class='item-tags'>
+          <div className='item-tags'>
             <img src="/assets/img/ian-dooley-10ca-K3e6Ko-unsplash 1.png" alt='tags' />
-            <p class='item-text'>Trends in 2020</p>
+            <p className='item-text'>Trends in 2020</p>
           </div>
 
-          <div class='item-tags'>
+          <div className='item-tags'>
             <img src="/assets/img/benjamin-voros-TnNo84AJJ5A-unsplash 1.png" alt='tags' />
-            <p class='item-text'>Black edition</p>
+            <p className='item-text'>Black edition</p>
           </div>
 
       </Carousel>

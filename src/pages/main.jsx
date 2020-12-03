@@ -67,7 +67,6 @@ class MainPage extends Component {
         items.map((data) => {return(
           <div className="items" key={data}>
             <div className="item-card" style={{height: "250px"}}>
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F3aaadc45f4da67e52850a02aedf68040%2Ftenor.gif%3Fitemid%3D13427670&f=1&nofb=1" alt="loading" className="imgItem"/>
             </div>
           </div>
         )})
