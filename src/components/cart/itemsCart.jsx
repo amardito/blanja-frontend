@@ -100,7 +100,7 @@ export default class ItemCart extends Component {
                 </ul>
             </div>
             <div className="col-md-8 col-lg-3 d-flex justify-content-start align-items-center pl-lg-3 p-0 mt-lg-0 mt-4">
-              <p className="cost h5">IDR {this.props.productPrice}</p>
+              <p className="cost h5">IDR {parseInt( this.props.productPrice ).toLocaleString()}</p>
             </div>
           </div>
         </div>
