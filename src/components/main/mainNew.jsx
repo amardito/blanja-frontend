@@ -7,7 +7,7 @@ export default class New extends Component {
       <div className="item-card">
         <img className="imgItem" src={img} alt="img"/>
         <div className="item-desc">
-          <p className="item-title">{title}</p>
+          <p className="item-title" style={{display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical'}}>{title}</p>
           <p className="item-price">IDR {parseInt( price ).toLocaleString()}</p>
           <p className="item-shop">{ownerShop}</p>
           <div className="item-rate">

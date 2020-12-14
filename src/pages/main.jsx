@@ -25,7 +25,7 @@ class MainPage extends Component {
   getAllPopular = async () => {
     await api.get('products?sortby=popular&sort=DESC').then(({data}) => {
       this.setState({
-        getDataPopular: data.data
+        getDataPopular: data.data.values
       })
     }).catch((err) => {
       console.log(err);
@@ -35,7 +35,7 @@ class MainPage extends Component {
   getAllLatest = async () => {
     await api.get('products?sortby=latest&sort=DESC').then(({data}) => {
       this.setState({
-        getDataNew: data.data
+        getDataNew: data.data.values
       })
     }).catch((err) => {
       console.log(err);
