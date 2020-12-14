@@ -67,7 +67,7 @@ export default class Mybag extends Component {
             <b>My Bag</b>
           </h2>
           <div className="row mt-4">
-            <div className="col-md-8 pl-0 mb-3">
+            <div className="col-lg-8 pl-0 pr-lg-3 pr-0 mb-3">
               <div className="card w-100">
                 <div className="card-body">
                 <div className="d-flex flex-row">
@@ -108,14 +108,14 @@ export default class Mybag extends Component {
             
             </div>
 
-            <div className="col-md-4 pl-0 pr-0 detail-price mb-5">
+            <div className="col-lg-4 pl-0 pr-0 detail-price mb-5">
               <div className="card text-center w-100  mb-5">
                 <div className="card-body mb-md-0 mb-5">
                   <h5 className="text-left font-weight-bold">Total Summary</h5>
                   <div className="price">
                     <p className="font-weight-bold d-inline">Total Price</p>
-                    <p className="text-dark d-inline">
-                      <b>harga</b>
+                    <p className="text-dark d-inline font-weight-normal">
+                      IDR 0
                     </p>
                   </div>
                   <div className="btn d-flex d-xs-none">
