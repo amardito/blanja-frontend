@@ -21,7 +21,7 @@ class Search extends Component {
     const search = this.props.location.search;
     await api.get(`search${search}`).then(({data}) => {
       this.setState({
-        getData: data.data
+        getData: data.data.values
       })
     }).catch((err) => {
       console.log(err);
@@ -42,7 +42,6 @@ class Search extends Component {
   render() {
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
-    const cat = new URLSearchParams(search).get("category");
     const { getData } = this.state;
     return (
       <>
@@ -53,7 +52,6 @@ class Search extends Component {
           <div className="search">
             <div className="head">
               <p>Searching for " {name} "</p>
-              <span>filter - {cat} </span>
             </div>
             <div className="flex-list">
               { 

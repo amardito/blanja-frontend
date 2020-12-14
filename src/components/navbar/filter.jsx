@@ -11,19 +11,29 @@ class Filter extends Component {
     super(props);
     this.state = {
       getCategory : [],
+      getSize: [],
+      getColor: [],
+      filter: {}
     }
   }
 
   componentDidMount(){
     this.setState({
-      getCategory: this.props.dataCategory
+      getCategory: this.props.dataCategory,
+      getColor: this.props.dataColor,
+      getSize: this.props.dataSize
     })
   }
 
+  componentDidUpdate(prevProps,prevState){
+    if (prevState.filter !== this.state.filter) {
+      this.props.urlCategory(this.state.filter)
+    }
+  }
+
   render() {
-    const { getCategory } = this.state;
-    const{ hidden, urlCategory } = this.props;
-    
+    const { getCategory, getSize, getColor } = this.state;
+    const{ hidden } = this.props;    
     return (
       <div className="wrap">
         
@@ -46,6 +56,63 @@ class Filter extends Component {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
+                  <h3>color</h3>
+                  <div className="d-flex flex-wrap">
+                    {getColor && getColor.map(
+                      ({ id_color, color, hex }) => {
+                        return(
+                          <div className="col-sm-4 col-6 pr-2 pl-2" key={id_color}>
+                            <div className="btn-group mr-2" role="group">
+                                <button type="submit" className="btnn mt-4" style={{border: `2px solid ${hex}`, color: `${hex}`}} 
+                                onMouseOver={(e) => {e.target.style.background = hex; e.target.style.color = '#ffff'}} 
+                                onMouseLeave={(e)=> {e.target.style.background = '#ffff'; e.target.style.color = hex}}
+                                onClick={(e)=>{
+                                  e.preventDefault()
+                                  this.setState({
+                                    filter : {
+                                      ...this.state.filter,
+                                      color: id_color
+                                    }
+                                  })
+                                }}>{ color }</button>
+                            </div>
+                          </div>
+                        )
+                      }
+                    )}
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
+
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <h3>Size</h3>
+                  <div className="d-flex flex-wrap">
+                    {getSize && getSize.map(
+                      ({ id_size, size }) => {
+                        return(
+                          <div className="col-sm-4 col-6 pr-2 pl-2" key={id_size}>
+                            <div className="btn-group mr-2" role="group">
+                                <button type="submit" className="btnn btn-outline-dark mt-4" style={{border: "2px solid #222222"}} onClick={(e)=>{
+                                  e.preventDefault()
+                                  this.setState({
+                                    filter : {
+                                      ...this.state.filter,
+                                      size: id_size
+                                    }
+                                  })
+                                }}>{ size }</button>
+                            </div>
+                          </div>
+                        )
+                      }
+                    )}
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
+
+              <ListGroup variant="flush">
+                <ListGroup.Item>
                   <h3>Category</h3>
                   <div className="d-flex flex-wrap">
                     {getCategory && getCategory.map(
@@ -55,7 +122,12 @@ class Filter extends Component {
                             <div className="btn-group mr-2" role="group">
                                 <button type="submit" className="btnn btn-outline-danger mt-4" style={{border: "2px solid #DB3022"}} onClick={(e)=>{
                                   e.preventDefault()
-                                  urlCategory(category_name)
+                                  this.setState({
+                                    filter : {
+                                      ...this.state.filter,
+                                      category : id_category
+                                    }
+                                  })
                                 }}>{ category_name }</button>
                             </div>
                           </div>

@@ -30,7 +30,13 @@ class Navbar extends Component {
         )
       },
       handleSearch: '',
-      getCategory: []
+      getCategory: [],
+      getSize: [],
+      getColor: [],
+      urlColor : '',
+      urlSize : '',
+      urlCategory: '',
+      urlParam: ''
     }
   }
 
@@ -64,20 +70,64 @@ class Navbar extends Component {
     });
   }
 
-  toggleCategory = (params) => {
+  getAllSize = async () => {
+    await api.get('size').then(({data}) => {
+      this.setState({
+        getSize: data.data
+      })
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  getAllColor = async () => {
+    await api.get('color').then(({data}) => {
+      this.setState({
+        getColor: data.data
+      })
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  toggleFilter = (params) => {
+    if (params.color !== undefined) {
+      this.setState({
+        urlColor: `color=${params.color}&`,
+        urlParam: `color=${params.color}`
+      })
+    }
+    if (params.size !== undefined) {
+      this.setState({
+        urlSize: `size=${params.size}&`,
+        urlParam: `size=${params.size}`
+      })
+    }
+    if (params.category !== undefined) {
+      this.setState({
+        urlCategory: `category=${params.category}`,
+        urlParam: `category=${params.category}`
+      })
+    }
+  }
+
+  searchAction = () => {
+    this.setState({
+      urlParam: `${this.state.urlColor}${this.state.urlSize}${this.state.urlCategory}`
+    })
     const search = this.props.prophistory.location.search;
     const name = new URLSearchParams(search).get("name")
     // console.log(search)
     if(name === null){
       this.props.prophistory.history.push({ 
         pathname: '/search',
-        search: `?category=${params}`
+        search: `?${this.state.urlParam}`
        });
       //  window.location.href=`/search?category=${params}`
     }else{
       this.props.prophistory.history.push({ 
         pathname: '/search',
-        search: `?name=${name}&category=${params}`
+        search: `?name=${name}&${this.state.urlParam}`
        });
       //  window.location.href=`/search?name=${name}&category=${params}`
     }
@@ -85,6 +135,14 @@ class Navbar extends Component {
 
   componentDidMount(){
     this.getAllCategory();
+    this.getAllColor();
+    this.getAllSize();
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    if (prevState.urlParam !== this.state.urlParam) {
+      this.searchAction()
+    }
   }
   
   render(){
@@ -164,7 +222,7 @@ class Navbar extends Component {
           </div>
         </nav>
         
-        {!this.state.isHidden && <FilterSearch hidden={this.toggleHidden} dataCategory={this.state.getCategory} urlCategory={this.toggleCategory}/>}
+        {!this.state.isHidden && <FilterSearch hidden={this.toggleHidden} dataCategory={this.state.getCategory} dataSize={this.state.getSize} dataColor={this.state.getColor} urlCategory={this.toggleFilter}/>}
 
       </>
     )
