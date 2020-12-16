@@ -195,7 +195,7 @@ class Navbar extends Component {
                 this.props.prophistory.history.push({ 
                   pathname: '/mybag'
                 })
-              }}/>
+              }} style={{marginRight: '10px'}}/>
               <this.state.navMenu/>
             </div>
   

@@ -118,7 +118,7 @@ export default class Mybag extends Component {
                       IDR 0
                     </p>
                   </div>
-                  <div className="btn d-flex d-xs-none">
+                  <div className="btnnn d-flex d-xs-none">
                     <button
                       to="/checkout"
                       onClick={this.handleBuy}
@@ -127,7 +127,7 @@ export default class Mybag extends Component {
                       Buy Now
                     </button>
                   </div>
-                  <div className="btn d-flex d-lg-none justify-content-center">
+                  <div className="btnnn d-flex d-lg-none justify-content-center">
                     <button
                       to="/checkout"
                       onClick={this.handleBuy}

@@ -1,117 +1,89 @@
 import React, { Component } from 'react'
-import { Form } from 'react-bootstrap'
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from '../components/navbar/navbar'
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: process.env.REACT_APP_BASEURL
-});
+import {Dropdown, Accordion, Card,ListGroup} from 'react-bootstrap'
+import SellProduct from '../components/profile/sellProduct'
 
 export class Profile extends Component {
   constructor(){
     super()
     this.state = {
-      product_name: '',
-      product_by: 'my-store',
-      product_price: '',
-      product_qty: '',
-      category_id: '',
-      product_desc: '',
-      getCategory: [],
-      product_img: ''
+     page: <>
+      <div className="pt-5">
+        <h1>Welcome to your profile page</h1>
+        <h5>select menu for starting manage your account</h5>
+      </div>
+     </>
     }
-
-  }
-
-  getAllCategory = async () => {
-    await api.get('category').then(({data}) => {
-      this.setState({
-        getCategory: data.data
-      })
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
-  
-  handlerChange = (e) => {
-    this.setState({ [e.target.name] : e.target.value})
-  }
-  handlerSubmit = async (event) => {
-    event.preventDefault()
-    const data = JSON.stringify({
-      product_name: this.state.product_name,
-      product_by: this.state.product_by,
-      product_price: this.state.product_price,
-      product_qty: this.state.product_qty,
-      category_id: this.state.category_id,
-      product_desc: this.state.product_desc,
-      product_sold: 0,
-      product_img: this.state.product_img,
-    })
-    // console.log(data);
-    await api.post(`product/create`, data,{
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(()=>{
-      console.log('succsess create new data');
-    }).catch((e)=>{
-      console.log(e);
-    })
-    this.props.history.push('/')
   }
 
   componentDidMount(){
-    this.getAllCategory();
+    this.setState({
+      page : <SellProduct prophistory={this.props}/>
+    })
   }
-
   render() {
-    const { getCategory } = this.state;
     return (
       <>
         <Navbar prophistory={this.props}/>
         <main>
-          <div className="main-container">
+          <div className="container-fluid d-flex flex-wrap p-0 position-relative justify-content-end">
+            <div className="col-4 pl-md-0 pl-sm-0 d-none d-sm-flex flex-column align-items-end" style={{boxShadow: '6px 0px 40px #97979746', minHeight:'100vh', position:'fixed',zIndex:2, left:0}}>
+              <div className="col-xxl-8 col-xl-10 col-lg-12 pt-5 pr-0 pl-md-0 pl-sm-0">
+                <div className="container justify-content-end pl-3 pl-xl-5 pr-0 pr-xl-3">
+                  <div className="d-flex flex-wrap container row justify-content-lg-end justify-content-md-center align-items-center p-0 m-0">
+                    <div className="d-flex align-items-center col-xl-4 col-lg-3 p-0 justify-content-center">
+                      <img src="#" className="rounded-circle border border-2 w-100 h-100" style={{maxWidth: '75px', maxHeight: '75px', minHeight: '75px'}} alt="profile"/>
+                    </div>
+                    <div className="col-sm-12 col-lg-9 col-xl-8 pr-0 flex-column d-flex justify-content-center p-0 mt-sm-2 mt-md-2">
+                      <h5 className="text-truncate">Porfile Name</h5>
+                      <span>Ubah Profile</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <div className="container">
-                <h2 className="mb-3">Create new product</h2>
-                <form className="col-lg-6" onSubmit={this.handlerSubmit}>
-                <Form.Group controlId="productName">
-                    <Form.Label>Name product</Form.Label>
-                    <Form.Control  type="text" name="product_name" placeholder="Name product" onChange={this.handlerChange} required/>
-                </Form.Group>
-                <Form.Group controlId="categoryProduct">
-                    <Form.Label>Category</Form.Label>
-                    <Form.Control as="select" name="category_id" defaultValue={0} onChange={this.handlerChange} required>
-                      <option value={0} disabled={true} hidden={true}>Select Category</option>
-                      {getCategory && getCategory.map(
-                        ({ id_category, category_name }) => {
-                          return(<option key={id_category} value={id_category}>{category_name}</option>)
-                        }
-                      )}
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="productPrice">
-                    <Form.Label>Product Price</Form.Label>
-                    <Form.Control type="number" name="product_price" placeholder="Product Price"  onChange={this.handlerChange}  required/>
-                </Form.Group>
-                <Form.Group controlId="productDesc">
-                    <Form.Label>Product Description</Form.Label>
-                    <Form.Control type="text" name="product_desc" placeholder="Product Description"  onChange={this.handlerChange}  required/>
-                </Form.Group>
-                <Form.Group controlId="productDesc">
-                    <Form.Label>Product Image</Form.Label>
-                    <Form.Control type="text" name="product_img" placeholder="put your image link on here"  onChange={this.handlerChange}  required/>
-                </Form.Group>
-                <Form.Group controlId="productQty">
-                    <Form.Label>Product Quantity</Form.Label>
-                    <Form.Control type="number" name="product_qty" placeholder="Product Quantity"  onChange={this.handlerChange} required/>
-                </Form.Group>
-                <button className="btnn primary" type="submit" >
-                  Submit
-                </button>
-                </form>
+              <div className="col-xxl-8 col-xl-10 col-lg-12 pt-5 pr-0 pl-md-0 pl-sm-0">
+                <h4 className="pr-0 pr-xl-3 pl-3 pl-xl-5">Menu</h4>
+                <div className="d-flex justify-content-end pr-0 pr-xl-3 pl-3 pl-xl-5">
+                  <Accordion className="w-100">
+                    <Card>                      
+                      <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
+                        <img src="/assets/icons/package 1.svg" alt="icon" className="rounded-circle mr-2" style={{width: '20px', height: '20px', backgroundColor:'#F36F45'}}/>
+                        <span className="mr-2">Products</span>
+                      </Accordion.Toggle>                      
+                      <Accordion.Collapse eventKey="0">
+                        <Card.Body className="p-0">
+                          <ListGroup>
+                            <ListGroup.Item action href="#/myproducts">
+                              My Products
+                            </ListGroup.Item>
+                            <ListGroup.Item action href="#/sellproduct">
+                              Sell Product
+                            </ListGroup.Item>
+                          </ListGroup>
+                        </Card.Body>
+                      </Accordion.Collapse>
+                    </Card>
+                  </Accordion>
+                </div>
+              </div>
+            </div>
+            <div className="d-flex d-sm-none col-12 align-items-end"  style={{minHeight: '50px'}}>
+              <Dropdown>
+                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                  <img src="/assets/icons/package 1.svg" alt="icon" className="rounded-circle mr-2" style={{width: '20px', height: '20px', backgroundColor:'#F36F45'}}/>
+                  <span className="mr-2">Products</span>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/myproducts">My Product</Dropdown.Item>
+                  <Dropdown.Item href="#/sellproduct">Selling Products</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+            <div className="col-12 col-sm-8 pl-3 pl-md-5 pt-5 pb-5" style={{backgroundColor: '#efefef'}}>
+              {this.state.page}
             </div>
           </div>
         </main>

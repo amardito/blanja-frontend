@@ -326,7 +326,7 @@ class Product extends Component {
         
         
         {/* Menu Bottom */}
-        <div className="btn d-flex d-lg-none justify-content-center">
+        <div className="btnnn d-flex d-lg-none justify-content-center">
           <button className="btnBtm btn-chart mt-2" >
             Chat
           </button>

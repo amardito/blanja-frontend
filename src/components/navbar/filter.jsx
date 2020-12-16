@@ -59,23 +59,21 @@ class Filter extends Component {
                   <h3>color</h3>
                   <div className="d-flex flex-wrap">
                     {getColor && getColor.map(
-                      ({ id_color, color, hex }) => {
+                      ({ id_color, hex }) => {
                         return(
-                          <div className="col-sm-4 col-6 pr-2 pl-2" key={id_color}>
-                            <div className="btn-group mr-2" role="group">
-                                <button type="submit" className="btnn mt-4" style={{border: `2px solid ${hex}`, color: `${hex}`}} 
-                                onMouseOver={(e) => {e.target.style.background = hex; e.target.style.color = '#ffff'}} 
-                                onMouseLeave={(e)=> {e.target.style.background = '#ffff'; e.target.style.color = hex}}
-                                onClick={(e)=>{
-                                  e.preventDefault()
-                                  this.setState({
-                                    filter : {
-                                      ...this.state.filter,
-                                      color: id_color
-                                    }
-                                  })
-                                }}>{ color }</button>
-                            </div>
+                          <div className="pr-2 pl-2 col-2 mt-4" key={id_color}>
+                            <button type="submit" className="rounded-circle" style={{border: `2px solid ${hex}`, color: `${hex}`, minHeight:'50px', minWidth:'50px'}} 
+                            onMouseOver={(e) => {e.target.style.background = hex; e.target.style.color = '#ffff'}} 
+                            onMouseLeave={(e)=> {e.target.style.background = '#ffff'; e.target.style.color = hex}}
+                            onClick={(e)=>{
+                              e.preventDefault()
+                              this.setState({
+                                filter : {
+                                  ...this.state.filter,
+                                  color: id_color
+                                }
+                              })
+                            }}></button>
                           </div>
                         )
                       }

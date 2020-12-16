@@ -166,7 +166,7 @@ ul.horizontal-list li {
 
 /* Small */
 @media (max-width: 767.98px) {
-  .btn {
+  .btnnn {
     position: fixed;
     height: 60px;
     left: 0;
@@ -187,7 +187,7 @@ ul.horizontal-list li {
 
 /* Medium */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .btn {
+  .btnnn {
     position: fixed;
     height: 60px;
     left: 0;
