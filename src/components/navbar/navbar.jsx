@@ -18,12 +18,14 @@ class Navbar extends Component {
         <div className="btn-wrap">
           <input type="button" value="Login" className="btnn primary" onClick={ (e)=>{
             e.preventDefault()
-            this.toggleLogin()
+            this.props.prophistory.history.push({ 
+              pathname: '/auth/login',
+            })
           }}/>
           <input type="button" value="Signup" className="btnn secondary" onClick={(e)=>{
             e.preventDefault();
             this.props.prophistory.history.push({ 
-              pathname: '/auth',
+              pathname: '/auth/register',
             })
           }}/>
         </div>
@@ -41,17 +43,27 @@ class Navbar extends Component {
   }
 
   toggleLogin = () => {
-    this.setState({
-      navMenu: () => {
-        return(
-          <Link to={{
-              pathname: `/profile`
-            }} className="btn-wrap" style={{width: "auto"}}>
-            <img src="/assets/img/christian-buehner-DItYlc26zVI-unsplash 1.png" alt="profile"/>
-          </Link>
-        )
-      }
-    })
+    const token = localStorage.getItem('token')
+    if (token !== null) {
+      this.setState({
+        navMenu: () => {
+          return(
+            <>
+              <Link to={{
+                  pathname: `/profile`
+                }} className="btn-wrap" style={{width: "auto"}}>
+                <img src="/assets/img/christian-buehner-DItYlc26zVI-unsplash 1.png" alt="profile"/>
+              </Link>
+              <button className="rounded" style={{width: '70px', height: '100%', marginLeft: '15px'}} onClick={(e) =>{
+                e.preventDefault()
+                localStorage.removeItem('token')
+                this.props.prophistory.history.push('/auth')
+              }}>Logout</button>
+            </>
+          )
+        }
+      })
+    }
   }
 
   toggleHidden = () => {
@@ -137,6 +149,7 @@ class Navbar extends Component {
     this.getAllCategory();
     this.getAllColor();
     this.getAllSize();
+    this.toggleLogin()
   }
 
   componentDidUpdate(prevProps,prevState){
@@ -195,7 +208,7 @@ class Navbar extends Component {
                 this.props.prophistory.history.push({ 
                   pathname: '/mybag'
                 })
-              }} style={{marginRight: '10px'}}/>
+              }} style={{marginRight: '15px'}}/>
               <this.state.navMenu/>
             </div>
   

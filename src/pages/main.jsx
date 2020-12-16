@@ -82,7 +82,7 @@ class MainPage extends Component {
                     pathname:`/product/${id_product}`,
                     state: {id_product}
                   }}>
-                  <New title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
+                  <New title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={`${process.env.REACT_APP_IMGURL}${product_img.split(',')[0]}`}/>
                 </Link>
               )
             }
@@ -100,7 +100,7 @@ class MainPage extends Component {
                     pathname: `/product/${id_product}`,
                     state: {id_product}
                   }}>
-                  <Popular title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
+                  <Popular title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={`${process.env.REACT_APP_IMGURL}${product_img.split(',')[0]}`}/>
                 </Link>
               )
             }
@@ -128,7 +128,7 @@ class MainPage extends Component {
              {getCategory && getCategory.map(
                ({ id_category, category_name, category_img}, index) => {
                 return(
-                  <Link key={id_category} to={`/search?category=${category_name}`}>
+                  <Link key={id_category} to={`/search?category=${id_category}`}>
                    <Category key={id_category} title={category_name} categoryImg={category_img} backgroundIndex={index} />
                   </Link>
                  )

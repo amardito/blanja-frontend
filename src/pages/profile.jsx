@@ -33,7 +33,7 @@ export class Profile extends Component {
                 <div className="container justify-content-end pl-3 pl-xl-5 pr-0 pr-xl-3">
                   <div className="d-flex flex-wrap container row justify-content-lg-end justify-content-md-center align-items-center p-0 m-0">
                     <div className="d-flex align-items-center col-xl-4 col-lg-3 p-0 justify-content-center">
-                      <img src="#" className="rounded-circle border border-2 w-100 h-100" style={{maxWidth: '75px', maxHeight: '75px', minHeight: '75px'}} alt="profile"/>
+                      <img src="/assets/img/christian-buehner-DItYlc26zVI-unsplash 1.png" className="rounded-circle border border-2 w-100 h-100" style={{maxWidth: '75px', maxHeight: '75px', minHeight: '75px'}} alt="profile"/>
                     </div>
                     <div className="col-sm-12 col-lg-9 col-xl-8 pr-0 flex-column d-flex justify-content-center p-0 mt-sm-2 mt-md-2">
                       <h5 className="text-truncate">Porfile Name</h5>
@@ -82,7 +82,7 @@ export class Profile extends Component {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-            <div className="col-12 col-sm-8 pl-3 pl-md-5 pt-5 pb-5" style={{backgroundColor: '#efefef'}}>
+            <div className="col-12 col-sm-8 pl-3 pl-md-5 pt-5 pb-5" style={{backgroundColor: '#f9f9f9'}}>
               {this.state.page}
             </div>
           </div>

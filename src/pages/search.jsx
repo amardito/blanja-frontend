@@ -62,7 +62,7 @@ class Search extends Component {
                           pathname:`/product/${id_product}`,
                           state: {id_product}
                         }}>
-                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
+                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={`${process.env.REACT_APP_IMGURL}${product_img.split(',')[0]}`}/>
                       </Link>
                     )
                   }
