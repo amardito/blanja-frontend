@@ -4,6 +4,9 @@ import '../../styles/components/navbar.css'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
 
+import { authLogout } from "../../global/actionCreators/auth";
+import { connect } from "react-redux";
+
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASEURL
 })
@@ -56,6 +59,7 @@ class Navbar extends Component {
               </Link>
               <button className="rounded" style={{width: '70px', height: '100%', marginLeft: '15px'}} onClick={(e) =>{
                 e.preventDefault()
+                this.props.dispatch(authLogout())
                 localStorage.removeItem('token')
                 this.props.prophistory.history.push('/auth')
               }}>Logout</button>
@@ -242,4 +246,10 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+  return{
+    login : state
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)
