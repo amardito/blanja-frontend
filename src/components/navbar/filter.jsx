@@ -40,6 +40,9 @@ class Filter extends Component {
         <div className="outer" onClick={(e)=>{
           e.preventDefault()
           hidden()
+          this.setState({
+            filter: {}
+          })
         }}></div>
 
         <div className="filterMenu">
@@ -48,6 +51,9 @@ class Filter extends Component {
               <button type="button" className="close pb-1" aria-label="Close" onClick={(e)=>{
                 e.preventDefault()
                 hidden()
+                this.setState({
+                  filter: {}
+                })
               }}>
                 <h1>&times;</h1>
               </button>

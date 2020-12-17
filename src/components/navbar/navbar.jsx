@@ -84,7 +84,10 @@ class Navbar extends Component {
 
   toggleHidden = () => {
     this.setState({
-      isHidden: !this.state.isHidden
+      isHidden: !this.state.isHidden,
+      urlColor: ``,
+      urlSize: ``,
+      urlCategory: ``
     })
   }
 
