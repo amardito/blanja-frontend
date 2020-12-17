@@ -3,24 +3,50 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from '../components/navbar/navbar'
 import {Dropdown, Accordion, Card,ListGroup} from 'react-bootstrap'
 import SellProduct from '../components/profile/sellProduct'
+import MyProducts from "../components/profile/MyProduct";
 
 export class Profile extends Component {
   constructor(){
     super()
     this.state = {
-     page: <>
-      <div className="pt-5">
-        <h1>Welcome to your profile page</h1>
-        <h5>select menu for starting manage your account</h5>
-      </div>
-     </>
+      page: () =>{ return(
+        <div className="pt-5 pl-5">
+          <h1>Welcome to your profile page</h1>
+          <h5>select menu for starting manage your account</h5>
+        </div>
+      )}
+    }
+  }
+  setPages=()=>{
+    if(this.props.location.hash === '#/sellproduct' || 
+    this.props.location.hash === '#/sellproduct/'){
+      this.setState({
+        page: ()=>{
+          return(
+            <SellProduct prophistory={this.props}/>
+          )
+        }
+      })
+    }
+    if(this.props.location.hash === '#/myproducts' || 
+    this.props.location.hash === '#/myproducts/'){
+      this.setState({
+        page: ()=>{
+          return(
+            <MyProducts p={this.props}/>
+          )
+        }
+      })
     }
   }
 
   componentDidMount(){
-    this.setState({
-      page : <SellProduct prophistory={this.props}/>
-    })
+    this.setPages()
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.location.hash !== this.props.location.hash){
+      this.setPages()    }
   }
   render() {
     return (
@@ -82,8 +108,8 @@ export class Profile extends Component {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-            <div className="col-12 col-sm-8 pl-3 pl-md-5 pt-5 pb-5" style={{backgroundColor: '#f9f9f9'}}>
-              {this.state.page}
+            <div className="col-12 col-sm-8 pl-0 pr-0 pt-5 pb-5" style={{backgroundColor: '#f9f9f9'}}>
+              {this.state.page()}
             </div>
           </div>
         </main>

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Container} from 'react-bootstrap'
 import "../styles/pages/detail.css";
 import Navbar from '../components/navbar/navbar';
-import EditProduct from '../components/product/editProduct'
+
 import SearchItems from '../components/search/searchItems';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -15,8 +15,9 @@ class Product extends Component {
   constructor(){
     super();
     this.state = {
+      primaryImg: 'http://cdn.lowgif.com/small/dc86e54ceca03be4-loading-spinner-animated-gif-83320-mediabin.gif',
+      otherImg: [],
       getData: {},
-      EditProduct: true,
       maxQty: 0,
       qty: 1,
       isDecDisable: true,
@@ -27,10 +28,10 @@ class Product extends Component {
   }
 
   getAll = async () => {
-    const search = `?category=${this.state.getData.category_name}`
+    const search = `?category=${this.state.getData.category_id}`
     await api.get(`search${search}`).then(({data}) => {
       this.setState({
-        refData: data.data
+        refData: data.data.values
       })
     }).catch((err) => {
       console.log(err);
@@ -86,27 +87,29 @@ class Product extends Component {
     }
   }
 
-  toggleEditProduct = () => {
-    this.setState({
-      EditProduct: !this.state.EditProduct
-    })
-  }
-
   getProduct = async () => {
     await api.get(this.props.location.pathname).then(({data}) => {
+      let otherImg = [];
+
+      if (data.data.product.product_img[0] !== undefined) {
+        for (let i = 1; i < data.data.product.product_img.length; i+=1) {
+          otherImg.push(`${process.env.REACT_APP_IMGURL}${data.data.product.product_img[i]}`);         
+        }
+      }else{
+        otherImg = '';
+      }
       this.setState({
-        getData: data,
-        maxQty: data.product_qty - 1
+        getData: data.data.product,
+        primaryImg : `${process.env.REACT_APP_IMGURL}${data.data.product.product_img[0]}`,
+        otherImg : otherImg,
+        maxQty: data.data.product.product_qty - 1
       })
     }).catch((err) => {
       console.log(err);
     });
   }
 
-  deleteProduct = async() => {
-    await api.delete(`product/delete/${this.state.getData.id_product}`)
-    this.props.history.push('/')
-  }
+  
 
   componentDidMount = () => {
     this.getProduct();
@@ -115,6 +118,9 @@ class Product extends Component {
   componentDidUpdate = (prevProps,prevState) => {
     if(prevState.getData !== this.state.getData){
       this.getAll();
+    }
+    if(prevProps.location.state !== this.props.location.state){
+      this.getProduct()
     }
   }
 
@@ -125,7 +131,6 @@ class Product extends Component {
     return (
       <>
       <Navbar prophistory={this.props} />
-      {!this.state.EditProduct && <EditProduct hidden={this.toggleEditProduct} propsHistory={this.props}/>}
       
       <main>
       <Container className="main">
@@ -137,57 +142,24 @@ class Product extends Component {
         <div className="row">
           <div className="col-sm-4">
             <img
-              src={this.state.getData.product_img}
+              src={this.state.primaryImg}
               alt="img"
               className="rounded img-fluid"
             />
             <div className="mt-3 more-images">
               <ul className="horizontal-list">
-                <li>
-                  
-                    <img
-                      src={this.state.getData.product_img}
-                      alt="img"
-                      className="rounded small-images"
-                    />
-                  
-                </li>
-                <li>
-                  
-                    <img
-                      src={this.state.getData.product_img}
-                      alt="img"
-                      className="rounded small-images"
-                    />
-                  
-                </li>
-                <li>
-                  
-                    <img
-                      src={this.state.getData.product_img}
-                      alt="img"
-                      className="rounded small-images"
-                    />
-                  
-                </li>
-                <li>
-                  
-                    <img
-                      src={this.state.getData.product_img}
-                      alt="img"
-                      className="rounded small-images"
-                    />
-                  
-                </li>
-                <li>
-                  
-                    <img
-                      src={this.state.getData.product_img}
-                      alt="img"
-                      className="rounded small-images"
-                    />
-                  
-                </li>
+               {this.state.otherImg !== '' ? this.state.otherImg.map((data,i) => {
+                  return(
+                    <li key={i}>                  
+                      <img
+                        src={data}
+                        alt="img"
+                        className="rounded small-images"
+                      />            
+                    </li>
+                  )
+                }) : <div></div>
+              }
               </ul>
             </div>
           </div>
@@ -195,16 +167,6 @@ class Product extends Component {
             <div className="row" style={{display: "flex", flexDirection: "row", padding: "0px 15px"}}>
 
               <h3>{getData.product_name}</h3>
-              <span style={{color: "#333333", fontSize:"medium", marginLeft: "10px", cursor: "pointer"}} onClick={(e)=>{
-                e.preventDefault()
-                this.toggleEditProduct()
-              }}>edit</span>
-              <span style={{color: "#DB3022",fontWeight: "bold", fontSize:"medium", marginLeft: "10px", cursor: "pointer"}} onClick={(e)=>{
-                e.preventDefault()
-                this.deleteProduct()
-              }}>
-                delete
-              </span>
 
             </div>
             <p className="font-p-title">
@@ -314,7 +276,7 @@ class Product extends Component {
                           pathname:`/product/${id_product}`,
                           state: {id_product}
                         }}>
-                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={product_img}/>
+                        <SearchItems title={product_name} price={product_price} ownerShop={product_by} sold={product_sold} img={`${process.env.REACT_APP_IMGURL}${product_img.split(',')[0]}`}/>
                       </Link>
                     )
                   }
@@ -327,7 +289,7 @@ class Product extends Component {
         
         {/* Menu Bottom */}
         <div className="btnnn d-flex d-lg-none justify-content-center">
-          <button className="btnBtm btn-chart mt-2" >
+          <button className="btnBtm btn-chart mt-2">
             Chat
           </button>
           <button className="btnBtm btn-add-bag mt-2" onClick={(e)=>{

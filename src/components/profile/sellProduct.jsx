@@ -12,7 +12,6 @@ export default class sellProduct extends Component {
     super()
     this.state = {
       product_name: '',
-      product_by: 'my-store',
       product_price: '',
       product_qty: '',
       category_id: '',
@@ -22,7 +21,8 @@ export default class sellProduct extends Component {
       getCategory: [],
       getSize: [],
       getColor: [],
-      product_img: []
+      product_img: [],
+      succMsg: ''
     }
 
   }
@@ -79,9 +79,11 @@ export default class sellProduct extends Component {
   handlerSubmit = async (event) => {
     event.preventDefault()
 
+    const {token,store} = JSON.parse(localStorage.getItem('token'))
+
     let bodyFormData = new FormData();
     bodyFormData.append('product_name', this.state.product_name)
-    bodyFormData.append('product_by', this.state.product_by)
+    bodyFormData.append('product_by', store)
     bodyFormData.append('product_price', this.state.product_price)
     bodyFormData.append('product_qty',this.state.product_qty)
     bodyFormData.append('category_id', this.state.category_id)
@@ -92,19 +94,26 @@ export default class sellProduct extends Component {
     for (let i = 0; i < this.state.product_img.length; i++) {
       bodyFormData.append("product_img", this.state.product_img[i]);
     }
-
     // console.log(data);
     await api.post(`product/create`, bodyFormData,{
       headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${token}` 
       }
     })
     .then(()=>{
       console.log('succsess create new data');
+      this.setState({
+        succMsg : 'success input form data'
+      })
+      this.forceUpdate(()=>{
+        this.getAllCategory();
+        this.getAllSize();
+        this.getAllColor();
+      })
     }).catch((e)=>{
       console.log(e);
     })
-    // this.props.prophistory.history.push('/')
   }
 
   componentDidMount(){
@@ -225,10 +234,11 @@ export default class sellProduct extends Component {
                 onChange={(e)=> this.handleFile(e)}
               />
             </Form>
-            <button className="btnn primary mt-4" type="submit" >
+            <button className="btnn primary mt-4" type="submit">
               Submit
             </button>
           </form>
+          <span style={{marginLeft: '15px', marginBottom: '10px'}}>{this.state.succMsg}</span>
         </Card>
       </div>
     )
