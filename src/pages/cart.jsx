@@ -38,7 +38,7 @@ export default class Mybag extends Component {
   }
 
   clearLocalStorage=()=>{
-    localStorage.clear()
+    localStorage.removeItem('belanjaUser')
     this.setState({
       getData: []
     })
@@ -100,7 +100,7 @@ export default class Mybag extends Component {
                 getData && getData.map(
                   ({ id_product, product_name, product_price, product_by, max_qty, item_qty, product_img}) => {
                     return(
-                      <ItemCart key={id_product} productImg={product_img} productName={product_name} productBy={product_by} productPrice={product_price} productQty={max_qty} itemQty={item_qty} />
+                      <ItemCart key={id_product} productImg={`${process.env.REACT_APP_IMGURL}${product_img[0]}`} productName={product_name} productBy={product_by} productPrice={product_price} productQty={max_qty} itemQty={item_qty} />
                     )
                   }
                 )

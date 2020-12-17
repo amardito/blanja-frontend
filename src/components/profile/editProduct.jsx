@@ -52,7 +52,7 @@ export default class EditProduct extends Component {
   handleFile (e){
     let product_img = e.target.files
     this.setState({product_img: product_img})
-    console.log(product_img);
+    // console.log(product_img);
   }
 
   updateProduct = async () => {
@@ -93,7 +93,7 @@ export default class EditProduct extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     const{ hidden } = this.props;
     return (
       <div className="wrap">

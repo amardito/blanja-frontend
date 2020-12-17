@@ -10,7 +10,7 @@ export class Profile extends Component {
     super()
     this.state = {
       page: () =>{ return(
-        <div className="pt-5 pl-5">
+        <div className="pt-5 pl-3 pl-md-5">
           <h1>Welcome to your profile page</h1>
           <h5>select menu for starting manage your account</h5>
         </div>
@@ -40,8 +40,18 @@ export class Profile extends Component {
     }
   }
 
+  level = () => {
+    const {level} = JSON.parse(localStorage.getItem('token'))
+    if(level === "costumer"){
+      return 'none'
+    }else{
+      return 'initial'
+    }
+  }
+
   componentDidMount(){
     this.setPages()
+    this.level()
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -72,7 +82,7 @@ export class Profile extends Component {
               <div className="col-xxl-8 col-xl-10 col-lg-12 pt-5 pr-0 pl-md-0 pl-sm-0">
                 <h4 className="pr-0 pr-xl-3 pl-3 pl-xl-5">Menu</h4>
                 <div className="d-flex justify-content-end pr-0 pr-xl-3 pl-3 pl-xl-5">
-                  <Accordion className="w-100">
+                  <Accordion className="w-100" style={{display : this.level()}}>
                     <Card>                      
                       <Accordion.Toggle as={Card.Header} variant="link" eventKey="0">
                         <img src="/assets/icons/package 1.svg" alt="icon" className="rounded-circle mr-2" style={{width: '20px', height: '20px', backgroundColor:'#F36F45'}}/>
@@ -96,7 +106,7 @@ export class Profile extends Component {
               </div>
             </div>
             <div className="d-flex d-sm-none col-12 align-items-end"  style={{minHeight: '50px'}}>
-              <Dropdown>
+              <Dropdown style={{display : this.level()}}>
                 <Dropdown.Toggle variant="light" id="dropdown-basic">
                   <img src="/assets/icons/package 1.svg" alt="icon" className="rounded-circle mr-2" style={{width: '20px', height: '20px', backgroundColor:'#F36F45'}}/>
                   <span className="mr-2">Products</span>

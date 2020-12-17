@@ -62,7 +62,7 @@ export default class MyProduct extends Component {
 
   render() {
     const {getAll} = this.state
-    console.log(this.state)
+    // console.log(this.state)
     return (
     <>
       {!this.state.EditProduct && <EditProduct hidden={this.toggleEditProduct} idproduct={this.state.idProduct} propsHistory={this.props.p} left={0}/>}

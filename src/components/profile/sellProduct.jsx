@@ -106,10 +106,8 @@ export default class sellProduct extends Component {
       this.setState({
         succMsg : 'success input form data'
       })
-      this.forceUpdate(()=>{
-        this.getAllCategory();
-        this.getAllSize();
-        this.getAllColor();
+      this.props.prophistory.history.push({
+        hash: '#/myproducts'
       })
     }).catch((e)=>{
       console.log(e);

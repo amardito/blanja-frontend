@@ -56,6 +56,9 @@ class Search extends Component {
     if (pageInfo.nextPage === null || pageInfo.nextPage === undefined) {
       next = true
     }
+    if (pageInfo.totalPage === 1){
+      next = true
+    }
     load = () => {
       let items = [0,1,2,3,4]
       return(
@@ -67,7 +70,6 @@ class Search extends Component {
         )})
       )  
     }
-    console.log(getData);
     if (getData.length) {
       searchData = () => {
         return(

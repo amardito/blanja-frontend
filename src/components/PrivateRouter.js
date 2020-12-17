@@ -3,7 +3,7 @@ import { Route,Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 
 function PrivateRouter({children, auth, ...rest}) {
-  console.log(auth);
+  // console.log(auth);
   return (
     <Route
       {...rest}
