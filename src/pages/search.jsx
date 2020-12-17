@@ -50,10 +50,10 @@ class Search extends Component {
     const name = new URLSearchParams(search).get("name");
     const { getData, pageInfo } = this.state;
     let load,searchData, prev, next
-    if (pageInfo.prevPage === null) {
+    if (pageInfo.prevPage === null || pageInfo.prevPage === undefined) {
       prev = true
     }
-    if (pageInfo.nextPage === null) {
+    if (pageInfo.nextPage === null || pageInfo.nextPage === undefined) {
       next = true
     }
     load = () => {
