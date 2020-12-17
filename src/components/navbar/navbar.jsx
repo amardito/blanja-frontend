@@ -57,11 +57,23 @@ class Navbar extends Component {
                 }} className="btn-wrap" style={{width: "auto"}}>
                 <img src="/assets/img/christian-buehner-DItYlc26zVI-unsplash 1.png" alt="profile"/>
               </Link>
-              <button className="rounded" style={{width: '70px', height: '100%', marginLeft: '15px'}} onClick={(e) =>{
+              <button className="rounded" style={{width: '70px', height: '100%', marginLeft: '15px'}} onClick={async (e) =>{
                 e.preventDefault()
-                this.props.dispatch(authLogout())
-                localStorage.removeItem('token')
-                this.props.prophistory.history.push('/auth')
+
+                const {token} = JSON.parse(localStorage.getItem('token'))
+
+                await api.post(`auth/logout`,null,{
+                  headers: {
+                    'Content-Length': '0',
+                    'Authorization': `Bearer ${token}` 
+                  }
+                }).then(()=>{
+                  this.props.dispatch(authLogout())
+                  localStorage.removeItem('token')
+                  this.props.prophistory.history.push('/auth')
+                }).catch((e)=>{
+                  console.log(e)
+                })
               }}>Logout</button>
             </>
           )
