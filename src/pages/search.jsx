@@ -14,6 +14,7 @@ class Search extends Component {
     super();
     this.state = {
       getData: [],
+      pageInfo: [],
     }
   }
 
@@ -21,7 +22,8 @@ class Search extends Component {
     const search = this.props.location.search;
     await api.get(`search${search}`).then(({data}) => {
       this.setState({
-        getData: data.data.values
+        getData: data.data.values,
+        pageInfo: data.data.pageInfo
       })
     }).catch((err) => {
       console.log(err);
@@ -42,9 +44,14 @@ class Search extends Component {
   render() {
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
-    const { getData } = this.state;
-    console.log(getData);
-    let load,searchData
+    const { getData, pageInfo } = this.state;
+    let load,searchData, prev, next
+    if (pageInfo.prevPage === null) {
+      prev = true
+    }
+    if (pageInfo.nextPage === null) {
+      next = true
+    }
     load = () => {
       let items = [0,1,2,3,4]
       return(
@@ -87,6 +94,13 @@ class Search extends Component {
             <div className="flex-list">
               { searchData() }
             </div>
+            <button style={{marginLeft: '20px'}} disabled={prev} onClick={(e) => {
+              e.preventDefault()
+              this.props.history.push(pageInfo.prevPage.split('/')[3])}}>Previous Page</button>
+            <span style={{marginLeft: '15px', marginRight:'15px'}}>{pageInfo.page}</span>
+            <button disabled={next} onClick={(e) => {
+              e.preventDefault()
+              this.props.history.push(pageInfo.nextPage.split('/')[3])}}>Next Page</button>
           </div>
 
         </div>
