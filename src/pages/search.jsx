@@ -19,6 +19,10 @@ class Search extends Component {
   }
 
   getAll = async () => {
+    this.setState({
+      getData : [],
+      pageInfo: []
+    })
     const search = this.props.location.search;
     await api.get(`search${search}`).then(({data}) => {
       this.setState({
@@ -63,7 +67,8 @@ class Search extends Component {
         )})
       )  
     }
-    if (getData[0] !== undefined) {
+    console.log(getData);
+    if (getData.length) {
       searchData = () => {
         return(
           getData && getData.map(
@@ -97,7 +102,7 @@ class Search extends Component {
             <button style={{marginLeft: '20px'}} disabled={prev} onClick={(e) => {
               e.preventDefault()
               this.props.history.push(pageInfo.prevPage.split('/')[3])}}>Previous Page</button>
-            <span style={{marginLeft: '15px', marginRight:'15px'}}>{pageInfo.page}</span>
+            <span style={{marginLeft: '15px', marginRight:'15px'}}>{pageInfo.page} | {pageInfo.totalPage}</span>
             <button disabled={next} onClick={(e) => {
               e.preventDefault()
               this.props.history.push(pageInfo.nextPage.split('/')[3])}}>Next Page</button>
