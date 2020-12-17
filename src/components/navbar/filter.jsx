@@ -68,9 +68,9 @@ class Filter extends Component {
                       ({ id_color, hex }) => {
                         return(
                           <div className="pr-2 pl-2 col-2 mt-4" key={id_color}>
-                            <button type="submit" className="rounded-circle" style={{border: `2px solid ${hex}`, color: `${hex}`, minHeight:'50px', minWidth:'50px'}} 
-                            onMouseOver={(e) => {e.target.style.background = hex; e.target.style.color = '#ffff'}} 
-                            onMouseLeave={(e)=> {e.target.style.background = '#ffff'; e.target.style.color = hex}}
+                            <button type="submit" className="rounded-circle" style={{border: `2px solid #cccccc`, backgroundColor: `${hex}`, minHeight:'50px', minWidth:'50px'}} 
+                            onMouseOver={(e) => {e.target.style.border = '2px solid #1396ec'}} 
+                            onMouseLeave={(e)=> {e.target.style.border = '2px solid #cccccc'}}
                             onClick={(e)=>{
                               e.preventDefault()
                               this.setState({
