@@ -206,7 +206,7 @@ class Navbar extends Component {
                   }
                 }} onChange={(e)=> {
                   // console.log(this.props);
-                  if(e.target.falue !== ''){
+                  if(e.target.value !== ''){
                     this.setState({
                       handleSearch: e.target.value
                     })
