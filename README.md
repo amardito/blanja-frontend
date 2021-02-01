@@ -18,3 +18,13 @@ blanja-frontend
    npm install or yarn install
    ```
    This will install the dependencies inside `node_modules`
+
+### Screenshot
+
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094720_acxsgp.jpg)
+
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094329_ipk3ve.jpg)
+
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094657_skjnkf.jpg)
+
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094619_f9gtmq.jpg)
