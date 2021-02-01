@@ -15,6 +15,6 @@ blanja-frontend
    ```
 2. Install NPM packages
    ```sh
-   npm install
+   npm install or yarn install
    ```
    This will install the dependencies inside `node_modules`
