@@ -21,10 +21,10 @@ blanja-frontend
 
 ### Screenshot
 
-![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094720_acxsgp.jpg)
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094720_acxsgp.jpg) <br/>
 
-![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094329_ipk3ve.jpg)
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094329_ipk3ve.jpg) <br/>
 
-![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094657_skjnkf.jpg)
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094657_skjnkf.jpg) <br/>
 
-![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094619_f9gtmq.jpg)
+![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094619_f9gtmq.jpg) <br/>
