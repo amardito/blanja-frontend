@@ -32,7 +32,7 @@
 
 ![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094619_f9gtmq.jpg)
 
-### demo
+### Demo
 
    This is Blanja Web build version, let's try it.
    [Click Me](http://bit.ly/3qR9dMa)
