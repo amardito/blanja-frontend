@@ -1,4 +1,4 @@
-blanja-frontend
+# blanja-frontend
 
 ### Requirements
 
@@ -31,4 +31,15 @@ blanja-frontend
 -
 
 ![alt text](https://res.cloudinary.com/dl3spjhwz/image/upload/v1612149570/Screenshot_2021-02-01_094619_f9gtmq.jpg)
+
+### demo
+
+   This is Blanja Web build version, let's try it.
+   [Click Me](http://bit.ly/3qR9dMa)
+
+### Related Project
+
+   RESTful API for this web application, clone this for development.
+   [Click Me](http://github.com/amardito/blanja-service)
+
 -
