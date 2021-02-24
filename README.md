@@ -41,5 +41,3 @@
 
    RESTful API for this web application, clone this for development.
    [Click Me](http://github.com/amardito/blanja-service)
-
--
