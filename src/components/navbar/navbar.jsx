@@ -57,7 +57,7 @@ class Navbar extends Component {
                 }} className="btn-wrap" style={{width: "auto"}}>
                 <img src="/assets/img/christian-buehner-DItYlc26zVI-unsplash 1.png" alt="profile"/>
               </Link>
-              <button className="rounded" style={{width: '70px', height: '100%', marginLeft: '15px'}} onClick={async (e) =>{
+              <button className="btnn primary" style={{width: '70px', height: '100%', paddingTop: 8, paddingBottom: 8, marginLeft: '15px'}} onClick={async (e) =>{
                 e.preventDefault()
 
                 const {token} = JSON.parse(localStorage.getItem('token'))

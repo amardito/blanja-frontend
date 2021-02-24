@@ -153,17 +153,17 @@ main{
 .popular{margin-bottom: 30px; padding: 0 10px;}
 .search{margin-bottom: 30px; padding: 0 10px;}
 
-.DIuaA{
+.kzPUbE{
   background-color: #00000070 !important;
   box-shadow: 0 0 1px 3px #b6b6b6f5 !important;
 }
-.bTybGL{background-color: #00000015 !important;}
-.bTybGL:hover:enabled,.bTybGL:focus:enabled{background-color: #777777a2 !important; color: #ffffff !important;}
-.bTybGL:disabled {cursor: default !important;color: #ffffff !important;}
+.jAkCdf{background-color: #00000015 !important;}
+.jAkCdf:hover:enabled,.jAkCdf:focus:enabled{background-color: #777777a2 !important; color: #ffffff !important;}
+.jAkCdf:disabled {cursor: default !important;color: #ffffff !important;}
 
-.kyJvRZ{background-color: #00000015 !important;}
-.kyJvRZ:hover:enabled,.kyJvRZ:focus:enabled{background-color: #777777a2 !important; color: #ffffff !important;}
-.kyJvRZ:disabled {cursor: default !important;color: #ffffff !important;}
+.jAmbxV{background-color: #00000015 !important;}
+.jAmbxV:hover:enabled,.jAmbxV:focus:enabled{background-color: #777777a2 !important; color: #ffffff !important;}
+.jAmbxV:disabled {cursor: default !important;color: #ffffff !important;}
 
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
